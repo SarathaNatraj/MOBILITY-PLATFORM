@@ -1,12 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
+package genericcollectionsandtypeinference;
 
-public class PersonalFinanceTracker {
+public class PersonalFinanceTrackerTypeInfer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		FinanceTracker<Integer> tracker = new FinanceTracker<Integer>();
+		//using Type inference - (Java infers types automatically with generics)
+		var tracker = new FinanceTracker<Integer>();
+		
 		
 		tracker.addTransaction(new Transaction<>(1, "Salary", 5000));
 		tracker.addTransaction(new Transaction<>(2, "Rent", -1500));
@@ -31,15 +32,8 @@ public class PersonalFinanceTracker {
 		
 		System.out.println("Updated Balance : "+tracker.getBalance());
 		
-				
-		List<Integer> list = new ArrayList<Integer>();
-		list.add(10);
-		//list.add("10")
-		
-		List<String> slist = new ArrayList<String>();
-		slist.add("hello");
-		System.out.println(slist.get(0));
-		
+		//Finding the specific trans by Id,
+		System.out.println(tracker.findTransaction(3));
 		
 
 	}
