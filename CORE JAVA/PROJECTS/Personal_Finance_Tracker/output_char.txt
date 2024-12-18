@@ -1,0 +1,13 @@
+Advanced Java Features
+	Generics and Type Safety - Completed
+	Generic Classes and Methods - Completed
+	Bounded Type Parameters and Wildcards - Completed
+	Generic Collections and Type Inference - Completed
+Java Reflection and Annotations
+	Reflection API: Accessing and Modifying Runtime Classes properties, methods - Completed
+	Annotations: Built-in and Custom Annotations - Completed
+Lambda Expressions and Functional Programming
+	Functional Programming Concepts
+	Lambda Expressions: Syntax and Usage
+	Functional Interfaces: Predicate, Function, Consumer, Supplier
+	Method References
