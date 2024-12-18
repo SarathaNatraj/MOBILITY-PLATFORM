@@ -7,6 +7,8 @@ public class Transaction {
 	private String description;
 	private double amount;
 	
+	static String bankName;
+	
 	public Transaction(int id,String desc, double amount) {
 		// TODO Auto-generated constructor stub
 		this.id = id;

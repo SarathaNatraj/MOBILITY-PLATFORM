@@ -29,7 +29,7 @@ public class RunTimeClassExample {
 		//accessing the private method
 		Method setAmountMethod = transClass.getDeclaredMethod("setAmount", double.class);
 		setAmountMethod.setAccessible(true);
-		setAmountMethod.invoke(t1, 7000);
+		setAmountMethod.invoke(t1, 7000); //t1.amount=7000
 		
 		System.out.println(" Updated Transaction : "+t1);
 		
