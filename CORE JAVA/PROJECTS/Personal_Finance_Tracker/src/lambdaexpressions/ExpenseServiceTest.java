@@ -32,7 +32,7 @@ public class ExpenseServiceTest {
 
         // Assert: Verify the result
         assertEquals(2, filteredExpenses.size(), "There should be 2 'Groceries' expenses.");
-        assertEquals("Grocery shopping", filteredExpenses.get(0).getDescription(), "First expense should be 'Grocery shopping'");
+        assertEquals("Grocery shopping", filteredExpenses.get(0).getDescription());
         assertEquals("Dining out", filteredExpenses.get(1).getDescription(), "Second expense should be 'Dining out'");
     }
 
