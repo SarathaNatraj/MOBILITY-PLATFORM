@@ -1,5 +1,7 @@
 package com.financetracker;
 
+import java.time.LocalTime;
+
 public class ExpenseTracker extends Thread {
 	private BalanceUpdater balanceUpdater;
 
@@ -11,9 +13,10 @@ public class ExpenseTracker extends Thread {
 	@Override
 	public void run() {
 		try {
+			System.out.println(" Current Time : - ExpenseTracker "+LocalTime.now());
 			for (int i = 0; i < 5; i++) {
 				synchronized (balanceUpdater) {
-
+					
 					double currentBalance = balanceUpdater.getBalance();
 					double expense = 50;
 					if (currentBalance >= expense) {
