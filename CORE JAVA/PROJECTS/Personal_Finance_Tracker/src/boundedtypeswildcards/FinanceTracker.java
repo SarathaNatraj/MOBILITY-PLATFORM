@@ -8,6 +8,10 @@ public class FinanceTracker<T extends Transaction> {
 	
 	private List<Transaction> transactions = new ArrayList();
 	
+	public FinanceTracker() {
+		System.out.println(" Inside Finance Tracker cons");
+	}
+	
 	public void addTransaction(T transaction) {
 		transactions.add(transaction);
 	}
