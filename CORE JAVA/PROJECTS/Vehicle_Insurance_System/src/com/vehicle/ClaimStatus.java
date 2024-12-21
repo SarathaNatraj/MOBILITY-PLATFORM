@@ -7,7 +7,7 @@ public class ClaimStatus {
     	//R - Select Query str
         String query = "SELECT claim_status FROM claims WHERE claim_id = ?";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
             stmt.setInt(1, claimId);
@@ -28,7 +28,7 @@ public class ClaimStatus {
     	//R - Select Query str
         String query = "SELECT * FROM claims";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
           //  stmt.setInt(1, claimId);
@@ -47,6 +47,14 @@ public class ClaimStatus {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+			try {
+				DatabaseConnection.getInstance().closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
     }
 }
 

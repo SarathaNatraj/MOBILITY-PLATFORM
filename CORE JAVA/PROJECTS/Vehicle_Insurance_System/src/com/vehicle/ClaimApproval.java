@@ -6,7 +6,7 @@ public class ClaimApproval {
     public static void updateClaimStatus(int claimId, String newStatus) {
         String query = "UPDATE claims SET claim_status = ? WHERE claim_id = ?";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
             stmt.setString(1, newStatus);  // New status (Approved/Denied)

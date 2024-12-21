@@ -7,7 +7,7 @@ public class StoredProcedureEx {
         // SQL call for the stored procedure
         String sql = "{CALL fileClaimProcedure_1(?, ?)}";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
              CallableStatement stmt = conn.prepareCall(sql)) {
              
             // Set input parameters for the stored procedure
