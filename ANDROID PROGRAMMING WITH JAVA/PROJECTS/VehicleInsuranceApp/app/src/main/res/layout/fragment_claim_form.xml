@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.claims.ClaimFormFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/vehicleNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Vehicle Number"/>
+
+        <EditText
+            android:id="@+id/accidentDetailsEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Accident Details"/>
+
+        <EditText
+            android:id="@+id/claimAmountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Claim Amount"/>
+
+        <Button
+            android:id="@+id/submitClaimButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Claim"/>
+    </LinearLayout>
+
+
+</FrameLayout>

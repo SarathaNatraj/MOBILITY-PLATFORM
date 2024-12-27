@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.claims.ClaimHistoryFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/claimHistoryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Claim History will appear here"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/addClaimButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Claim"/>
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.claim.UpdateClaimStatusActivity">
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Claim ID input field -->
+        <EditText
+            android:id="@+id/etClaimId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Claim ID"
+            android:inputType="text"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Claim ID input field" />
+
+        <!-- New status input field -->
+        <EditText
+            android:id="@+id/etNewStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter New Status"
+            android:inputType="text"
+            android:importantForAccessibility="yes"
+            android:contentDescription="New status input field" />
+
+        <!-- Update Status Button -->
+        <Button
+            android:id="@+id/btnUpdateStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Status"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Button to update claim status" />
+
+        <!-- Feedback message (optional, could be added programmatically) -->
+        <TextView
+            android:id="@+id/tvStatusUpdateMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_green_dark"
+            android:visibility="gone"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Feedback message for status update" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
