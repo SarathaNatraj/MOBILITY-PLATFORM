@@ -20,8 +20,13 @@ import java.util.List;
 public class TaskFragment extends Fragment {
 
     private RecyclerView recyclerView;
+
     private TaskAdapter adapter;
-    private List<Task> taskList;
+    private  List<Task> taskList=new ArrayList<>();
+
+
+
+
 
     @Nullable
     @Override
@@ -31,22 +36,36 @@ public class TaskFragment extends Fragment {
        recyclerView = view.findViewById(R.id.recycler_view);
        FloatingActionButton fabAdd = view.findViewById(R.id.fab_add);
 
-        taskList = new ArrayList<>();
-        adapter = new TaskAdapter(taskList);
+        // Fetch shared task list
 
+
+        adapter = new TaskAdapter(taskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
         fabAdd.setOnClickListener(v -> {
-           ((MainActivity) getActivity()).loadFragment(new AddTaskFragment());
+           ((MainActivity) getActivity()).loadFragment(new AddTaskFragment(),"AddTaskFragment");
         });
 
         return view;
     }
+    public void refreshTaskList() {
+      //  if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        //}
+    }
+    public void addTask(Task task) {
+        Toast.makeText(getContext(), "Task Added!", Toast.LENGTH_SHORT).show();
+        taskList.add(task); //this can be replaced with database
+     //   ((MainActivity) getActivity()).setTaskList(((MainActivity) getActivity()).getTaskList());
+        adapter.notifyDataSetChanged();
+    }
 
-    public void addTask(String taskTitle) {
+
+    /*public void addTask(String taskTitle) {
         taskList.add(new Task(taskTitle));
         adapter.notifyDataSetChanged();
-        Toast.makeText(getContext(), "Task Added!", Toast.LENGTH_SHORT).show();
-    }
+        System.out.println(taskList);
+        Toast.makeText(getContext(), "Task Added!"+taskList.toString(), Toast.LENGTH_SHORT).show();
+    }*/
 }

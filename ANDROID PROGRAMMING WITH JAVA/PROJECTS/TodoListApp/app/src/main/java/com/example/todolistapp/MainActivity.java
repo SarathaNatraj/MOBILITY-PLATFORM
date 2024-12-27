@@ -1,6 +1,7 @@
 package com.example.todolistapp;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +10,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +28,18 @@ public class MainActivity extends AppCompatActivity {
         });
         // Load the TaskFragment by default
         if (savedInstanceState == null) {
-            loadFragment(new TaskFragment());
+            loadFragment(new TaskFragment(),"TaskFragment");
         }
     }
 
-    public void loadFragment(Fragment fragment) {
+    public void loadFragment(Fragment fragment, String fragmentName) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
+                .replace(R.id.fragment_container, fragment, fragmentName)
                 .addToBackStack(null)
                 .commit();
     }
+
+
 
 }
