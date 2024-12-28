@@ -25,6 +25,7 @@ public class TaskFragment extends Fragment {
     private  List<Task> taskList=new ArrayList<>();
 
 
+    private DataBaseHelper dbHelper;
 
 
 
@@ -38,8 +39,10 @@ public class TaskFragment extends Fragment {
 
         // Fetch shared task list
 
+        dbHelper = new DataBaseHelper(getContext());
+        List<Task> tasks = dbHelper.getAllTasks();
 
-        adapter = new TaskAdapter(taskList);
+        adapter = new TaskAdapter(tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 

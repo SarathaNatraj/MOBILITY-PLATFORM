@@ -16,6 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Task" />
+        <EditText
+            android:id="@+id/edit_text_task_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Task Desc" />
 
         <Button
             android:id="@+id/btn_add_task"

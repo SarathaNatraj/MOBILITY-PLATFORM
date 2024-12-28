@@ -21,8 +21,8 @@ public class AddTaskFragment extends Fragment {
         void onTaskAdded(String taskTitle);
     }
 
-    String taskTitle;
-
+    String taskTitle, taskTitleDesc;
+    private DataBaseHelper dbHelper;
 
     @Nullable
     @Override
@@ -30,10 +30,14 @@ public class AddTaskFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_task, container, false);
 
         EditText editTextTask = view.findViewById(R.id.edit_text_task);
+        EditText editTextTaskDesc = view.findViewById(R.id.edit_text_task_desc);
         Button btnAddTask = view.findViewById(R.id.btn_add_task);
+
+        dbHelper = new DataBaseHelper(getContext());
 
         btnAddTask.setOnClickListener(v -> {
          taskTitle   = editTextTask.getText().toString().trim();
+         taskTitleDesc = editTextTaskDesc.getText().toString();
             if (TextUtils.isEmpty(taskTitle)) {
                 editTextTask.setError("Task cannot be empty!");
             } else {
@@ -42,8 +46,9 @@ public class AddTaskFragment extends Fragment {
                     TaskFragment fragment = (TaskFragment) getActivity()
                             .getSupportFragmentManager()
                             .findFragmentByTag("TaskFragment");
-                    Task task = new Task(taskTitle);
-                        ((TaskFragment) fragment).addTask(task);
+                    Task task = new Task(taskTitle,taskTitleDesc);
+                    dbHelper.addTask(task);
+                     //   ((TaskFragment) fragment).addTask(task);
                         getActivity().getSupportFragmentManager().popBackStack();
                         System.out.println(fragment);
                    // }
