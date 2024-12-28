@@ -1,15 +1,20 @@
 package com.example.vehicleclaimapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Claim {
-    private String claimId;
+    @PrimaryKey(autoGenerate = true)
+    private int claimId;
     private String description;
     private String status; // e.g., "Pending", "Approved", "Rejected"
     private String dateSubmitted;
     private String dateUpdated;
 
     // Constructor
-    public Claim(String claimId, String description, String status, String dateSubmitted, String dateUpdated) {
-        this.claimId = claimId;
+    public Claim( String description, String status, String dateSubmitted, String dateUpdated) {
+        //this.claimId = claimId;
         this.description = description;
         this.status = status;
         this.dateSubmitted = dateSubmitted;
@@ -17,11 +22,11 @@ public class Claim {
     }
 
     // Getters and Setters
-    public String getClaimId() {
+    public int getClaimId() {
         return claimId;
     }
 
-    public void setClaimId(String claimId) {
+    public void setClaimId(int claimId) {
         this.claimId = claimId;
     }
 

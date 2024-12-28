@@ -1,0 +1,43 @@
+
+RoomDB to App
+
+1. Add the dependency, app's build.gradle, under dependencies section
+	implementation("androidx.room:room-runtime:2.6.1")
+	annotationProcessor("androidx.room:room-compiler:2.6.1")
+2. Annotate your bean/model with @Entity, @PrimaryKey(autoGenerate=true) 
+3. DAO interface -> XXXDao(interface) with @Insert, @Query, @Update, @Delete
+
+	import androidx.room.Dao;
+	import androidx.room.Insert;
+	import androidx.room.Query;
+
+	import java.util.List;
+
+	import com.example.vehicleclaimapp.model.Claim;
+
+	@Dao
+	public interface ClaimDao {
+
+    		@Insert
+    		void insertClaim(Claim claim);
+
+    		@Query("SELECT * FROM Claim")
+  		  List<Claim> getAllClaims();
+	}
+
+4. Create AppDatabase with @Database(entities class, version), extends RoomDatabase, singleton class implementation
+
+5. From UI, Activity / Fragment
+	make your database calls on separate thread -> Executors.newSingleThreadExecutor -> insert
+	runOnUIThread -> result of db operation, has to be affect your UI(ListView, RecyclerView), update your Adapter, update the collection object
+
+
+
+java.lang.IllegalStateException: Cannot access database on the main thread since it may potentially lock the UI for a long period of time. 
+	-> Executors.newSingleThead
+
+
+     android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views. Expected: main Calling: pool-4-thread-1 - 
+	-> runOnUIThread
+
+	

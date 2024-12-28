@@ -12,12 +12,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vehicleclaimapp.R;
+import com.example.vehicleclaimapp.database.AppDatabase;
 import com.example.vehicleclaimapp.model.Claim;
 import com.example.vehicleclaimapp.service.claim.ClaimManager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.Executors;
 
 public class ClaimSubmissionActivity extends AppCompatActivity {
 
@@ -40,6 +43,9 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
         btnUpdateClaim = findViewById(R.id.btnUpdateClaim);
         lvClaimHistory = findViewById(R.id.lvClaimHistory);
 
+        //Fetch the database object
+        AppDatabase db = AppDatabase.getInstance(this);
+
         // Set up adapter to display claim history
         claimHistoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
         lvClaimHistory.setAdapter(claimHistoryAdapter);
@@ -57,8 +63,14 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
                     String status = "Pending"; // Initial status
                     String dateUpdated = dateSubmitted;
 
-                    Claim newClaim = new Claim(claimId, description, status, dateSubmitted, dateUpdated);
-                    claimManager.addClaim(newClaim);
+                    Claim newClaim = new Claim( description, status, dateSubmitted, dateUpdated);
+
+
+                    Executors.newSingleThreadExecutor().execute(()->{
+                        db.claimDao().insertClaim(newClaim);
+                    });
+
+                 //   claimManager.addClaim(newClaim);
 
                     // Clear input and show confirmation
                     etClaimDescription.setText("");
@@ -72,12 +84,22 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Display claim history
                 ArrayList<String> claimHistoryList = new ArrayList<>();
-                for (Claim claim : claimManager.getAllClaims()) {
+                /*for (Claim claim : claimManager.getAllClaims()) {
                     claimHistoryList.add(claim.toString());
-                }
-                claimHistoryAdapter.clear();
-                claimHistoryAdapter.addAll(claimHistoryList);
-                claimHistoryAdapter.notifyDataSetChanged();
+                }*/
+                Executors.newSingleThreadExecutor().execute(()-> {
+                    List<Claim> claimList = db.claimDao().getAllClaims();
+                    runOnUiThread(()->{
+                        for (Claim claim : claimList) {
+                            claimHistoryList.add(claim.toString());
+                        }
+                        claimHistoryAdapter.clear();
+                        claimHistoryAdapter.addAll(claimHistoryList);
+                        claimHistoryAdapter.notifyDataSetChanged();
+
+                    });
+
+                });
             }
         });
         btnUpdateClaim.setOnClickListener(new View.OnClickListener() {

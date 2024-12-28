@@ -40,7 +40,7 @@ public class UpdateClaimStatusActivity extends AppCompatActivity {
                 String updatedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
                 // Update the claim status
-                claimManager.updateClaimStatus(claimId, newStatus, updatedDate);
+    //            claimManager.updateClaimStatus(claimId, newStatus, updatedDate);
 
                 Toast.makeText(UpdateClaimStatusActivity.this, "Claim status updated", Toast.LENGTH_SHORT).show();
             }

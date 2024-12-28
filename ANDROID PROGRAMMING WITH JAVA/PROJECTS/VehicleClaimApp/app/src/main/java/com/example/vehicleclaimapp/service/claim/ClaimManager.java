@@ -24,9 +24,9 @@ public class ClaimManager {
     }
 
     // Find a claim by ID
-    public Claim findClaimById(String claimId) {
+    public Claim findClaimById(int claimId) {
         for (Claim claim : claims) {
-            if (claim.getClaimId().equals(claimId)) {
+            if (claim.getClaimId()==claimId) {
                 return claim;
             }
         }
@@ -34,7 +34,7 @@ public class ClaimManager {
     }
 
     // Update a claim status
-    public void updateClaimStatus(String claimId, String newStatus, String updatedDate) {
+    public void updateClaimStatus(int claimId, String newStatus, String updatedDate) {
         Claim claim = findClaimById(claimId);
 
         if (claim != null) {
@@ -43,7 +43,7 @@ public class ClaimManager {
             claims.add(claim);
             // Use streams to fetch and update the object
             Optional<Claim> claimToUpdate = claims.stream()
-                    .filter(claim1 -> claim1.getClaimId().equals(claimId))
+                    .filter(claim1 -> claim1.getClaimId()==claimId)
                     .findFirst();
 
             // Update the object if present
