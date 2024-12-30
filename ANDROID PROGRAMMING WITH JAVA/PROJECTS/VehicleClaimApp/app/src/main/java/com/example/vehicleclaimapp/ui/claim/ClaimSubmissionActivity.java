@@ -26,7 +26,7 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
 
     private ClaimManager claimManager;
     private EditText etClaimDescription;
-    private Button btnSubmitClaim, btnViewClaimHistory,btnUpdateClaim;
+    private Button btnSubmitClaim, btnViewClaimHistory,btnUpdateClaim,btnDelClaim;
     private ListView lvClaimHistory;
     private ArrayAdapter<String> claimHistoryAdapter;
 
@@ -41,6 +41,7 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
         btnSubmitClaim = findViewById(R.id.btnSubmitClaim);
         btnViewClaimHistory = findViewById(R.id.btnViewClaimHistory);
         btnUpdateClaim = findViewById(R.id.btnUpdateClaim);
+        btnDelClaim = findViewById(R.id.btnDeleteClaim);
         lvClaimHistory = findViewById(R.id.lvClaimHistory);
 
         //Fetch the database object
@@ -106,6 +107,13 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ClaimSubmissionActivity.this, UpdateClaimStatusActivity.class));
+
+            }
+        });
+        btnDelClaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ClaimSubmissionActivity.this, DeleteClaimActivity.class));
 
             }
         });

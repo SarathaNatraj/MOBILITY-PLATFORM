@@ -26,11 +26,16 @@
             android:layout_height="wrap_content"
             android:text="Submit Claim" />
 
-                <Button
+         <Button
                     android:id="@+id/btnUpdateClaim"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Update Claim" />
+                <Button
+                    android:id="@+id/btnDeleteClaim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete Claim" />
 
         <Button
             android:id="@+id/btnViewClaimHistory"

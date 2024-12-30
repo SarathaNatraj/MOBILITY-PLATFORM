@@ -13,10 +13,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.vehicleclaimapp.R;
+import com.example.vehicleclaimapp.database.AppDatabase;
+import com.example.vehicleclaimapp.model.Claim;
 import com.example.vehicleclaimapp.service.claim.ClaimManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.Executors;
+
 public class UpdateClaimStatusActivity extends AppCompatActivity {
     private ClaimManager claimManager;
     private EditText etClaimId, etNewStatus;
@@ -31,18 +35,35 @@ public class UpdateClaimStatusActivity extends AppCompatActivity {
         etClaimId = findViewById(R.id.etClaimId);
         etNewStatus = findViewById(R.id.etNewStatus);
         btnUpdateStatus = findViewById(R.id.btnUpdateStatus);
+        //Fetch the database object
+        AppDatabase db = AppDatabase.getInstance(this);
 
         btnUpdateStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String claimId = etClaimId.getText().toString();
+                int claimId = Integer.parseInt(etClaimId.getText().toString());
                 String newStatus = etNewStatus.getText().toString();
                 String updatedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
                 // Update the claim status
     //            claimManager.updateClaimStatus(claimId, newStatus, updatedDate);
+                Executors.newSingleThreadExecutor().execute(()-> {
+                    Claim existingClaim = db.claimDao().getClaimById(claimId);
+                    if (existingClaim != null) {
+                        existingClaim.setStatus(newStatus);
+                        existingClaim.setDateUpdated(updatedDate);
+                        db.claimDao().updateClaim(existingClaim);
+                        runOnUiThread(() -> {
+                            Toast.makeText(UpdateClaimStatusActivity.this, "Claim status updated", Toast.LENGTH_SHORT).show();
+                        });
 
-                Toast.makeText(UpdateClaimStatusActivity.this, "Claim status updated", Toast.LENGTH_SHORT).show();
+                    } else {
+                        runOnUiThread(() -> {
+                            Toast.makeText(UpdateClaimStatusActivity.this, "Claim " + claimId + " not available !", Toast.LENGTH_SHORT).show();
+                        });
+                    }
+
+                });
             }
         });
     }
