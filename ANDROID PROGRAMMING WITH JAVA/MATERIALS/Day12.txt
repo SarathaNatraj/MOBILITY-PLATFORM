@@ -51,3 +51,32 @@ II. ActionBar on Fragment
 
 	Handling the individual menu item click. must override "onOptionsItemSelected(MenuItem" 
 		same as your 
+
+
+Notification implementation
+1. NotificationHelper
+	a. createNotificationChannel -> importance, channel_id, chnnel_title,
+				-> attach this channel to Android System service
+	b. called from onCreate of Activity/ onCreateView of Fragment
+	
+	c. sendNotification
+		-> Fetch the NotificationManager
+		-> Create an PendingIntent  trigger notification
+		-> Construct the Notification Message with channel, context, pendingIntent
+		-> call NotificationManager.notify -> add permission POST_NOTIFICATIONS
+	D. called from where ever you need implement the notification 
+
+
+Service
+	-> pure java class , executed as foreground/back ground, extends Service
+	-> Register the service in manifest.xml
+		  <service android:name=".service.claim.ClaimUpdateService"
+           		 android:enabled="true"
+           		 android:exported="false" />
+	-> where to start -> Launcher activity from there
+		// Start background service
+        	Intent serviceIntent = new Intent(this, ClaimUpdateService.class);
+        	startService(serviceIntent); 
+	-> to stop Service
+		Intent serviceIntent = new Intent(this, ClaimUpdateService.class);
+        	context.stopService(serviceIntent);

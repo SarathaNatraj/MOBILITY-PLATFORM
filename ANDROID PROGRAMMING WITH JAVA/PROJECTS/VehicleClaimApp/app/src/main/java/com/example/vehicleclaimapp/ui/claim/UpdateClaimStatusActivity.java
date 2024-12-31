@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.vehicleclaimapp.R;
 import com.example.vehicleclaimapp.database.AppDatabase;
 import com.example.vehicleclaimapp.model.Claim;
+import com.example.vehicleclaimapp.notification.NotificationHelper;
 import com.example.vehicleclaimapp.service.claim.ClaimManager;
 
 import java.text.SimpleDateFormat;
@@ -37,6 +38,8 @@ public class UpdateClaimStatusActivity extends AppCompatActivity {
         btnUpdateStatus = findViewById(R.id.btnUpdateStatus);
         //Fetch the database object
         AppDatabase db = AppDatabase.getInstance(this);
+        NotificationHelper.createNotificationChannel(getApplicationContext());
+
 
         btnUpdateStatus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +57,13 @@ public class UpdateClaimStatusActivity extends AppCompatActivity {
                         existingClaim.setDateUpdated(updatedDate);
                         db.claimDao().updateClaim(existingClaim);
                         runOnUiThread(() -> {
-                            Toast.makeText(UpdateClaimStatusActivity.this, "Claim status updated", Toast.LENGTH_SHORT).show();
+                            // Send a notification when the claim is updated
+
+                            NotificationHelper.sendNotification(getApplicationContext(), existingClaim.getStatus());
+
+                            Toast.makeText(UpdateClaimStatusActivity.this, "Claim Status Updated: " + existingClaim.getStatus(), Toast.LENGTH_SHORT).show();
+
+                           // Toast.makeText(UpdateClaimStatusActivity.this, "Claim status updated", Toast.LENGTH_SHORT).show();
                         });
 
                     } else {

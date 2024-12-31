@@ -22,6 +22,7 @@ import com.example.vehicleclaimapp.R;
 import com.example.vehicleclaimapp.database.AppDatabase;
 import com.example.vehicleclaimapp.model.Claim;
 import com.example.vehicleclaimapp.service.claim.ClaimManager;
+import com.example.vehicleclaimapp.service.claim.ClaimUpdateService;
 import com.example.vehicleclaimapp.ui.about.AboutAppActivity;
 import com.example.vehicleclaimapp.ui.about.SettingsActivity;
 
@@ -56,6 +57,11 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
 
         //Fetch the database object
         AppDatabase db = AppDatabase.getInstance(this);
+
+        // Start background service
+        Intent serviceIntent = new Intent(this, ClaimUpdateService.class);
+        startService(serviceIntent);
+
 
         // Set up adapter to display claim history
         claimHistoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
