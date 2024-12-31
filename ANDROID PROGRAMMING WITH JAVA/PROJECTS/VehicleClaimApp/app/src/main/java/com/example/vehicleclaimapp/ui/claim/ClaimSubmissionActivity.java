@@ -1,20 +1,29 @@
+
 package com.example.vehicleclaimapp.ui.claim;
 //User Story 6: As a user, I want to view my claim history and status updates for my ongoing claims.
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.example.vehicleclaimapp.R;
 import com.example.vehicleclaimapp.database.AppDatabase;
 import com.example.vehicleclaimapp.model.Claim;
 import com.example.vehicleclaimapp.service.claim.ClaimManager;
+import com.example.vehicleclaimapp.ui.about.AboutAppActivity;
+import com.example.vehicleclaimapp.ui.about.SettingsActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,6 +43,7 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  onOptionsItemSelected(true);
         setContentView(R.layout.activity_claim_submission);
 
         claimManager = new ClaimManager();
@@ -117,5 +127,44 @@ public class ClaimSubmissionActivity extends AppCompatActivity {
 
             }
         });
+        // Enable the ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Vehicle Claim App"); // Set title
+            actionBar.setSubtitle("Track your claims");
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable back button
+            actionBar.setIcon(R.drawable.app);
+        }
     }
+    // Inflate the menu items for the ActionBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_menu, menu);
+        return true;
+
+    }
+
+    // Handle ActionBar item clicks
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("ActionBar", "Clicked item: " + item);
+        Log.d("ActionBar", "Clicked item - Title: " + item.getTitle()
+        );
+
+        if (item.getTitle().toString().equalsIgnoreCase("About App")) {
+            Toast.makeText(this, "About App clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ClaimSubmissionActivity.this, AboutAppActivity.class));
+            return true;
+        }
+        if (item.getTitle().toString().equalsIgnoreCase("Settings")){
+            Toast.makeText(this, "About App clicked", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(ClaimSubmissionActivity.this, SettingsActivity.class));
+        return true;
+    }
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
