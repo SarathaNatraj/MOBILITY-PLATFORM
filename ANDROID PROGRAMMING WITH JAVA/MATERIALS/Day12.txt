@@ -1,0 +1,53 @@
+ActionBar on Activity
+1. start from MainActivity, implement for other activities
+	
+   // Enable the ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Vehicle Claim App"); // Set title
+            actionBar.setSubtitle("Track your claims");
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable back button
+        }
+
+2. Frontend, res folder
+	Right Click -> Android Resource Directory -> choose menu folder
+	Right Click menu folder -> New -> Menu Resource File
+
+	Inside actionbar_menu.xml
+		<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_app"
+        android:title="About App"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_me"
+        android:title="About Me"
+        app:showAsAction="never"
+        />
+</menu>
+
+
+3. BackEnd
+	If ActionBar with menu items, must override this method "onCreateOptionsMenu"
+		public boolean onCreateOptionsMenu(Menu menu) {
+			//inflate menu.xml
+		}
+	Handling the individual menu item click. must override "onOptionsItemSelected(MenuItem" 
+
+
+
+
+II. ActionBar on Fragment
+1. Frontend - same
+2. BackEnd - Fragment -> onCreateView ->
+		 setHasOptionsMenu(true);
+	If ActionBar with menu items, must override this method "onCreateOptionsMenu"
+		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.menubar,menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+	Handling the individual menu item click. must override "onOptionsItemSelected(MenuItem" 
+		same as your 

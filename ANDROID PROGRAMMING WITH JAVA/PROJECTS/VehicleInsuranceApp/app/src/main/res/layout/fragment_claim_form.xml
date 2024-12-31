@@ -28,6 +28,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Claim Amount"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Captured Image"
+            android:background="#CCCCCC" />
+
+        <Button
+            android:id="@+id/captureImageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Capture Image" />
+
+
+
 
         <Button
             android:id="@+id/submitClaimButton"

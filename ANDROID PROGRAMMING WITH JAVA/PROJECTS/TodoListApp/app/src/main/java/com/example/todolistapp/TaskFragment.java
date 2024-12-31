@@ -1,7 +1,11 @@
 package com.example.todolistapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -22,20 +26,20 @@ public class TaskFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private TaskAdapter adapter;
-    private  List<Task> taskList=new ArrayList<>();
+    private List<Task> taskList = new ArrayList<>();
 
 
     private DataBaseHelper dbHelper;
-
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
+        setHasOptionsMenu(true);
 
-       recyclerView = view.findViewById(R.id.recycler_view);
-       FloatingActionButton fabAdd = view.findViewById(R.id.fab_add);
+        recyclerView = view.findViewById(R.id.recycler_view);
+        FloatingActionButton fabAdd = view.findViewById(R.id.fab_add);
 
         // Fetch shared task list
 
@@ -47,20 +51,22 @@ public class TaskFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         fabAdd.setOnClickListener(v -> {
-           ((MainActivity) getActivity()).loadFragment(new AddTaskFragment(),"AddTaskFragment");
+            ((MainActivity) getActivity()).loadFragment(new AddTaskFragment(), "AddTaskFragment");
         });
 
         return view;
     }
+
     public void refreshTaskList() {
-      //  if (adapter != null) {
-            adapter.notifyDataSetChanged();
+        //  if (adapter != null) {
+        adapter.notifyDataSetChanged();
         //}
     }
+
     public void addTask(Task task) {
         Toast.makeText(getContext(), "Task Added!", Toast.LENGTH_SHORT).show();
         taskList.add(task); //this can be replaced with database
-     //   ((MainActivity) getActivity()).setTaskList(((MainActivity) getActivity()).getTaskList());
+        //   ((MainActivity) getActivity()).setTaskList(((MainActivity) getActivity()).getTaskList());
         adapter.notifyDataSetChanged();
     }
 
@@ -71,4 +77,31 @@ public class TaskFragment extends Fragment {
         System.out.println(taskList);
         Toast.makeText(getContext(), "Task Added!"+taskList.toString(), Toast.LENGTH_SHORT).show();
     }*/
-}
+
+    // Inflate the menu items for the ActionBar
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.menubar,menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+
+    //Item Click
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("ActionBar", "Clicked item: " + item);
+        Log.d("ActionBar", "Clicked item - Title: " + item.getTitle());
+        if (item.getTitle().toString().equalsIgnoreCase("About App")) {
+            Toast.makeText(getContext(), "About App clicked", Toast.LENGTH_SHORT).show();
+         //   startActivity(new Intent(ClaimSubmissionActivity.this, AboutAppActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+
+    }
+
+
+
+    }
+
+
+

@@ -28,12 +28,12 @@ RoomDB to App
 4. Create AppDatabase with @Database(entities class, version), extends RoomDatabase, singleton class implementation
 
 5. From UI, Activity / Fragment
-	make your database calls on separate thread -> Executors.newSingleThreadExecutor -> insert
+	make your database calls on separate thread -> Executors. -> insert
 	runOnUIThread -> result of db operation, has to be affect your UI(ListView, RecyclerView), update your Adapter, update the collection object
 
 
 
-java.lang.IllegalStateException: Cannot access database on the main thread since it may potentially lock the UI for a long period of time. 
+java.lang.IllegalStateException: Cannot access database on the main thread since it may potentially lock the UI for a long period of time. newSingleThreadExecutor
 	-> Executors.newSingleThead
 
 
