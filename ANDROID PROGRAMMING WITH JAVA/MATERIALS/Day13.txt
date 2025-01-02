@@ -17,3 +17,32 @@ BackEnd :-
 6. Inside Activity/Fragment for particular claim_id, existing images show image
 7. Connect with Camera -> Check permission through code -> then call startCamera()
 
+
+User Story 12: As a developer, I want the app to access and display relevant information from the web, like updates from the insurance company. -> Connecting REST API from Android app
+
+https://677636ef12a55a9a7d0ae13a.mockapi.io/company
+
+Database methods - Http methods
+
+READ - GET
+CREATE - POST
+UPDATE - PUT
+DELETE - DELETE
+
+
+1. Add dependencies app's build.gradle.kts
+	implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    	implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    	implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
+2. Construct the model -> based on your response
+3. Create Service interface -> APIService
+	define all the methods for connecting API, getPolicyDetails, getCompanyInfo, getTopHeadlines,
+	each method annotated with @GET with specific end-point
+4. Inside MainActivity
+	1. Initialize Retrofit
+		https://677636ef12a55a9a7d0ae13a.mockapi.io - baseUrl
+		https://677636ef12a55a9a7d0ae13a.mockapi.io/company - URL with company endpoint
+		https://677636ef12a55a9a7d0ae13a.mockapi.io/policy - URL with policy endpoint
+		GsonConverterFactory - Google JSON converter lib
+	2. Create Service object using Retrofit 
+	3. Make your API calls
