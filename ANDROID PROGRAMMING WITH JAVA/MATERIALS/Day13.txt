@@ -1,0 +1,19 @@
+User Story 3 - Camera feature
+Pre-reqeustite: Claims should be already there in db, We are displaying existing claims in RecyclerView
+1. UI have option to upload image for Claim, add in to your activity/fragment.xml
+	androidx.camera.view.PreviewView
+	Button -> to capture the image
+	RecyclerView -> to show list of captured images
+BackEnd :-
+2. Create model Class ClaimImage (id, claim_id, imagePath)
+3. Create a Dao for ClaimImageDao
+4. Add ClaimImageDao into your database.
+5. Add dependencies in build.gradle.kts
+    implementation ("androidx.camera:camera-core:1.3.0")
+    implementation ("androidx.camera:camera-camera2:1.3.0")
+
+    implementation ("androidx.camera:camera-view:1.3.0")
+    implementation ("androidx.camera:camera-lifecycle:1.3.0")
+6. Inside Activity/Fragment for particular claim_id, existing images show image
+7. Connect with Camera -> Check permission through code -> then call startCamera()
+
