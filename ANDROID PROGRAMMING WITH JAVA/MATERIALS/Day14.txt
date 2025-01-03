@@ -1,0 +1,27 @@
+User  Story 5  - Integrating Location Services
+Fetching current location without using Google Maps API 
+1. Add permissions in manifest.xml
+	  <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+2. FusedLocationProviderClient -> 
+	initialise the LocationService -> Android System Location System
+
+
+	
+Fetching current location using Google Maps API 
+1. Add permissions in manifest.xml
+2. Add dependencies in app's build.gradle.kts
+	implementation ("com.google.android.gms:play-services-maps:18.1.0")
+  	implementation ("com.google.android.gms:play-services-location:21.0.1")
+3. Add Maps Key in manifest.xml -> fetch Google Maps API Key from google console
+	  <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="MAPS_KEY" />
+4. activity/fragment
+	<fragment name="android:name="com.google.android.gms.maps.SupportMapFragment"/>
+5. MainActivity -> onCreate
+	initialise the SupportMapFragment
+	getMapAsync(this) -> initialises the Map Dashboard
+	onMapReady -> after map is initalised
