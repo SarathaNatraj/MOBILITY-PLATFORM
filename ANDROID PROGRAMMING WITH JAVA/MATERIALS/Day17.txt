@@ -1,0 +1,28 @@
+KeyClasses
+ObjectAnimator: Animates a specific property of an object -.
+AnimatorSet: Plays a group of animations together or sequentially.
+ValueAnimator: Provides animation values over time without targeting a specific property.
+PropertyValuesHolder: Allows animating multiple properties of an object simultaneously.
+
+
+Tween Animation -> translate, rotate, scale, fade in /out
+
+Frame/Drawable animation -> seq of images will be displayed one after the other (slideshow)
+
+Fade in / Fade out  -> alpha property
+
+
+Frame Animation -> (work as flipbook)
+	1. Keep collection of images inside the drawable folder 
+	2. animation_frame.xml which animator list as root node inside drawable folder
+	3. action_frame.xml -> ImageView android:src="@drawable/frame_animation"
+	4. FrameActivity 
+		ImageView animateView = findViewById(R.id.imgView);
+
+        	animateView.setBackgroundResource(R.drawable.frame_animation);
+       		 AnimationDrawable frameAnimation = (AnimationDrawable)animateView.getBackground();
+        	//start -> flipbook
+        	frameAnimation.start();
+
+Bluetooth, Wifi, NFC
+

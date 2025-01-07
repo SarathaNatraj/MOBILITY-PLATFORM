@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnBluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan Bluetooth Devices" />
+
+    <Button
+        android:id="@+id/btnWifi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect to Wi-Fi" />
+
+    <Button
+        android:id="@+id/btnNfc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read NFC Tag" />
+
+    <TextView
+        android:id="@+id/txtResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Results will appear here"
+        android:paddingTop="20dp" />
+</LinearLayout>

@@ -1,0 +1,27 @@
+BackEnd ->  25 lines - 20 mins
+	Entity -> Book -> properties -> 5 lines
+	Dao -> BookDao -> 5 CRUD -> 5 lines
+	Database -> 10 lines
+FrontEnd -> 
+	AddBookActivity -> 25 lines  - 10 mins
+			
+		4 Edittext components -> findViewById
+		1 Button component -> findViewById
+	
+		onClickListener 
+	
+	add_book.xml -> title, author, description, review, cover image(optional), Add 
+
+	MainActivity -> 30 lines - 10 mins
+		
+		2  components -> findViewById
+		initialise the adapater with RecyclerView 
+
+		BookAdapter -> 25 lines, 10 write lines
+		
+
+	main.xml
+		recyclerview
+		add button
+	item_row.xml
+		

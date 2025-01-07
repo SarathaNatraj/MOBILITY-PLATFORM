@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rotation="0"
+    android:rotationX="0"
+    android:rotationY="0">
+
+    <Button
+        android:id="@+id/animate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Animate My View Below" />
+
+    <Button
+        android:id="@+id/custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/animate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Go to Custom Animation" />
+    <Button
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/custom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Go to Frame Animation" />
+
+    <View
+        android:id="@+id/my_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/custom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/holo_blue_light"></View>
+
+    <View
+        android:id="@+id/my_view_ani"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/my_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/holo_red_light"></View>
+
+
+</RelativeLayout>
