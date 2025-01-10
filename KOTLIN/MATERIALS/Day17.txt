@@ -1,0 +1,36 @@
+//Java
+int a, b;
+datatype variable_name;
+
+//Kotlin
+var/val a:Int 
+
+val firstName:String
+var emailAddress:String or var emailAddress
+
+var/val variable_name:Datatype
+
+
+var emailAddress
+emailAddress ="A@gmail.com" -> Inferred means understood by compiler ie emailAddress 
+
+var interestRate = 45.23 
+
+Int,
+String
+Double
+Float,
+
+
+
+
+
+String str = "xyz";
+str=null;
+if(str.length() > 0){
+
+}
+
+
+var str:String? ="xyz"
+str = null

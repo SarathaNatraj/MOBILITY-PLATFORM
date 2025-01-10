@@ -1,0 +1,9 @@
+class Transaction{
+	Double amount;
+	String date;
+	String desc;
+
+	Transaction(Double amount, String  date, String desc ) {
+		this
+	}	
+}
