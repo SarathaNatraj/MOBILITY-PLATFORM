@@ -4,6 +4,9 @@ class Transaction{
 	String desc;
 
 	Transaction(Double amount, String  date, String desc ) {
-		this
+		this.amount=amount;
+		this.date=date;
 	}	
 }
+
+class Transaction(var amount:Double, var date:String, var desc: String) {

@@ -1,0 +1,18 @@
+//Java
+int[] a = new int[10] 
+
+String[] str = new String[10]
+
+//Kotlin
+val intArray = Array<Int>() -> 
+
+
+val doubleArray = arrayOf(10.23,45.56)
+
+An Event Manager app tracks the following:
+
+	A list of events (with details like name, date, and attendees).
+	A map of users and the events they are registered for.
+	A set of unique attendees for each event.
+
+
