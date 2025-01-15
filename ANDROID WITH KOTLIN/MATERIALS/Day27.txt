@@ -1,0 +1,11 @@
+1. Add dependencies in app's build.gradle
+2. Define a interface with annotated methods
+3. Define a service class
+4. Make a Api call  from Activity/Fragaments
+
+
+supporting files for api call
+1.data class inside model package
+2.XXXAdapater created depends upon the URL/API
+
+Gson - Google implementation JSON responses
