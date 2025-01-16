@@ -1,0 +1,14 @@
+Which method is used to go from one destination to another destination, passing the action ID as the parameter?
+
+Select one answer option below.
+
+navigate
+
+
+goTo
+
+
+loadScreen
+
+
+startActivity

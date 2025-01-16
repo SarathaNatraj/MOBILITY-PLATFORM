@@ -1,0 +1,16 @@
+1. Add navigation dependencies in app's build.gradle
+2. Create a Android Resource directory (navigation as resource type)
+3. Create nav_graph.xml inside navigation folder
+4. activity_main.xml , create a fragment with 
+	  anoid:name="androidx.navigation.fragment.NavHostFragment"
+	  app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+5.Inside ide MainActivity initialise the Navigation Controller
+6. Create multiple fragments/activities and xml
+7. Open nav_graph.xml click on + symbol, add the fragments
+8. Select the particular fragment, provide actions
+9. Inside fragment, on button click listenser, call 
+	findNavController().navigate(destination)
+
+
+	
