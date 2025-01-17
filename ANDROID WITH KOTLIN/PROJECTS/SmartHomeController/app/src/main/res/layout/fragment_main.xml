@@ -16,11 +16,12 @@
             android:layout_height="wrap_content"
             android:text="Light Control" />
 
+
         <Button
             android:id="@+id/button_thermostat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thermostat Settings" />
+                      android:text="Thermostat Settings"/>
 
         <Button
             android:id="@+id/button_settings"
@@ -32,9 +33,10 @@
             android:id="@+id/button_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open Settings" />
-    </LinearLayout>
+            android:text="Dashboard Settings" />
 
+
+    </LinearLayout>
 
 
 </FrameLayout>

@@ -1,0 +1,19 @@
+1. Add following lines in app's build.gradle, inside android block
+	viewBinding{
+        	enable = true;
+    	}
+2. Inside Activity/Fragment declare the binding variable
+
+	binding classes should be xml file name with Binding at end of the filename
+
+	private lateinit var binding: ActivityMainBinding
+
+3. Inside onCreate method,we initialise the variable
+	
+	after the first line
+
+		binding = ActivityMainBinding.inflate(layoutInflater)
+		setContentView(binding.root) //R.layout.activity_main
+
+4. Access all the components using binding.xxx , no need for findViewById method, R.layout etc...
+		

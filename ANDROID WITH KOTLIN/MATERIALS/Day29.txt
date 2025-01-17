@@ -1,0 +1,75 @@
+1. Add following lines in app's build.gradle, inside android block
+	viewBinding{
+        	enable = true;
+    	}
+2. Inside Activity/Fragment declare the binding variable
+
+	binding classes should be xml file name with Binding at end of the filename
+
+	private lateinit var binding: ActivityMainBinding
+
+3. Activity -> Inside onCreate method,we initialise the variable
+	
+	after the first line
+
+		binding = ActivityMainBinding.inflate(layoutInflater)
+		setContentView(binding.root) //R.layout.activity_main
+
+4. Access all the components using binding.xxx , no need for findViewById method, R.layout etc...
+
+5. If it is a Fragment, inside onCreateView method,
+
+		 binding = FragmentMainBinding.inflate(inflater, container, false)
+6. same as step 4
+
+
+
+
+DataBinding
+
+1. Add following lines in app's build.gradle, inside android block
+	dataBinding{
+        	enable = true;
+    	}
+2. In your back end code, generate ViewModel classes for each module, plain class extends ViewModel()
+
+3. Move your business logic ViewModel classes from the Activity/Fragments
+
+4. In your FrontEnd, AddVehicle / UpdateVehicle
+
+	<layout>
+	<data>
+		<variable name="vehicleViewModel" type="VehicleViewModel">
+	</data>
+
+
+
+
+
+	<LinerLayout >
+
+		<EditText
+			android:text="@{vehicleViewModel.vehicleName}"
+		/>
+
+		<Button text="Save USer"
+			android:onClick="vehicleViewModel.saveVehicle()">
+		</Button>
+
+	<LinearLayout>
+    <layout>
+ 
+	
+		
+
+	<data>
+		<variable name="userViewModel" type="UserViewModel">
+	</data>
+
+5. in the corresponding fragment/activity
+
+ 	// Initialize ViewModel
+        val viewModel = DashboardViewModel()
+
+        // Bind ViewModel to layout
+        binding.viewModel = viewModel

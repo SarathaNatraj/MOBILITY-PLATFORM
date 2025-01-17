@@ -5,11 +5,11 @@
 	  anoid:name="androidx.navigation.fragment.NavHostFragment"
 	  app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
-5.Inside ide MainActivity initialise the Navigation Controller
+5.Inside MainActivity initialise the Navigation Controller
 6. Create multiple fragments/activities and xml
 7. Open nav_graph.xml click on + symbol, add the fragments
 8. Select the particular fragment, provide actions
-9. Inside fragment, on button click listenser, call 
+9. Inside fragment, on button click listener, call 
 	findNavController().navigate(destination)
 
 
