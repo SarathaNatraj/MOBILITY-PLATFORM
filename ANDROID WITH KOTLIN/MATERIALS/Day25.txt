@@ -1,0 +1,25 @@
+Navigation with arguments
+
+1. Add plugins in project's build.gradle.kts,you have add plugin version,
+	inside gradle\libs.versions.toml
+		[versions]
+			safeargs = "2.7.1"
+		[plugins]
+			kotlin-safeargs = {id= "androidx.navigation.safeargs", version.ref="safeargs"}
+			
+
+2. Add project's build.gradle.kts
+	alias(libs.plugins.kotlin.safeargs) apply false
+
+3. Add following lines, inside your app's build.gradle.kts
+	
+	id ("kotlin-parcelize")// adding @Parcelize and your data class has to implements Parcelable
+   	id ("androidx.navigation.safeargs.kotlin")
+4. Inside nav_graph, for which navigation link, provide args
+	 <argument
+                android:name="selectedMovie"
+                app:argType="com.example.mymovieapp.model.Movie"
+                />
+
+
+
