@@ -1,6 +1,7 @@
 package com.example.smarthomecontroller
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,6 +10,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.smarthomecontroller.databinding.ActivityMainBinding
+import androidx.work.*
+import java.util.concurrent.TimeUnit
+import com.example.smarthomecontroller.workmanager.SyncWorker
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +39,40 @@ class MainActivity : AppCompatActivity() {
 
         // Setup ActionBar with NavController
         setupActionBarWithNavController(navController)
+
+//Day 7: WorkManager for Background Tasks
+//Task 1: Implement WorkManager to periodically sync device states with the server.
+//Task 2: Use WorkManager to schedule tasks for device automation based on user-defined rules
+
+        // Define user-defined rules
+        val userRules = "Turn off Wi-Fi at night"
+
+        // Create input data for the Worker
+        val inputData = Data.Builder()
+            .putString("userRules", userRules)
+            .build()
+
+        // Create a periodic work request with Worker class,
+        val syncWorkRequest = PeriodicWorkRequestBuilder<SyncWorker>(15, TimeUnit.MINUTES)
+            .setInputData(inputData)
+
+            .build()
+
+        // Enqueue the work request
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "DeviceSyncWork",
+            ExistingPeriodicWorkPolicy.REPLACE,
+            syncWorkRequest
+        )
+//observe workmanager task -> optionall
+        WorkManager.getInstance(this).getWorkInfosForUniqueWorkLiveData("DeviceSyncWork")
+            .observe(this) { workInfos ->
+                workInfos?.forEach { workInfo ->
+                    Log.d("MainActivity", "Work Status: ${workInfo.state}")
+                }
+            }
+
+
 
 
     }

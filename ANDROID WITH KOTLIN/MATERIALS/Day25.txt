@@ -21,5 +21,42 @@ Navigation with arguments
                 app:argType="com.example.mymovieapp.model.Movie"
                 />
 
+inside fetch peopleResponse{protocol=h2, code=400, message=, url=https://api.tvmaze.com/search/people}
+2025-01-18 11:48:24.352 22420-22420 Compatibil...geReporter com.example.personinfo
+
+interface ApiService {
+    @GET("search/people")
+    suspend fun searchPeople(@Query("q") query: String): Response<List<PersonResponse>>
+}
+
+
+
+lifecycleScope.launch { //launch in coroutines 
+    try {
+        val response = apiService.searchPeople("lauren")
+        if (response.isSuccessful) {
+            val people = response.body()
+            if (people != null) {
+                // Do something with the list of people
+                for (person in people) {
+                    Log.d("Person", "Name: ${person.person.name}")
+                }
+            } else {
+                Log.e("API Error", "Empty response body.")
+            }
+        } else {
+            Log.e("API Error", "Error code: ${response.code()}, message: ${response.message()}")
+        }
+    } catch (e: Exception) {
+        Log.e("Network Error", e.message ?: "Unknown error")
+    }
+}
+     
+
+
+Day 7: WorkManager for Background Tasks
+Task 1: Implement WorkManager to periodically sync device states with the server.
+Task 2: Use WorkManager to schedule tasks for device automation based on user-defined rules      
+
 
 

@@ -50,6 +50,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.1")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
