@@ -13,10 +13,16 @@ import com.example.smarthomecontroller.databinding.ActivityMainBinding
 import androidx.work.*
 import java.util.concurrent.TimeUnit
 import com.example.smarthomecontroller.workmanager.SyncWorker
+import dagger.Provides
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
+
+    @get:Provides
+     lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,0 +1,65 @@
+Optionals -> Obj is present or absent
+	var name:String?
+
+Closure 
+	{ (parameters) -> returnType in 
+
+		//code
+	}
+
+	
+
+Int -> -ve & +ve
+UInt -> zero and above
+
+
+Dictionary -> key and value pairs
+
+
+val num = (double) n1 // java, kotlin
+let myFloat = Float(n1) //swift
+
+
+//Swift Playground snippets
+
+
+
+let greet : (String,Int) -> String = { (ghfgf,hghg) in
+  "Hello, \(ghfgf)! : \(hghg)"
+}
+
+print(greet("John",10))
+
+var capitalCity = ["Nepal":"Kathmandu", "England":"London" ]
+print(capitalCity)
+capitalCity["Japan"]="Tokyo"
+print("Updated Dictionary")
+print(capitalCity)
+
+var nepal = capitalCity["Nepal"]
+print(nepal!)
+
+//fetching keys
+var countries=Array(capitalCity.keys)
+print(countries)
+
+//fetching values
+var cities=Array(capitalCity.values)
+print(cities)
+
+//remove a particular value
+var removedValue = capitalCity.removeValue(forKey: "Nepal")
+print(removedValue!)
+print("Updated Dictionary")
+print(capitalCity)
+
+print("\\(n)")
+//iterate over
+for(key,value) in capitalCity{
+  print("\(key) : \(value)")
+}
+
+
+
+
+

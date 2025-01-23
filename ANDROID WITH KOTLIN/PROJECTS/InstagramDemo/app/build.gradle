@@ -1,0 +1,253 @@
+/*
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+plugins {
+    id 'com.android.application'
+    // Targeting Android Platform of Kotlin
+    id 'kotlin-android'
+    // Annotation processing tool for Kotlin
+    id 'kotlin-kapt'
+}
+
+// Load the API Properties
+def apiPropertiesFile = rootProject.file("instagram_api.properties")
+def apiProperties = new Properties()
+apiProperties.load(new FileInputStream(apiPropertiesFile))
+
+/*
+// Load the details for signing the APK
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+*/
+/*
+// Load the details for signing the APK
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+*/
+
+kapt {
+    arguments {
+        // Enable incremental annotation processing for Room
+        arg("room.incremental", "true")
+    }
+}
+
+android {
+    // Constants defined for use with buildConfigField
+    def STRING = "String"
+    def BASE_URL = "BASE_URL"
+    def BASE_URL_VAL = '"' + apiProperties['BASE_URL_VAL'] + '"'
+    def API_KEY = "API_KEY"
+    def API_KEY_VAL = '"' + apiProperties['API_KEY_VAL'] + '"'
+
+    signingConfigs {
+        release {
+          /* // storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']*/
+        }
+    }
+
+    compileSdkVersion versions.compile_sdk
+
+    defaultConfig {
+        applicationId "com.sample.yogiraj.instagram.demo"
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.target_sdk
+        versionCode rootProject.ext.gitCommitCount
+        versionName "1.0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        archivesBaseName = "$applicationId-v$versionName"
+    }
+
+    sourceSets {
+        // Shared Test directory for classes shared between Instrumented Tests and Unit Tests
+        def sharedTestDir = 'src/sharedTest/java'
+
+        test {
+            // Add shared test directory to source of Unit Tests
+            java.srcDirs += sharedTestDir
+        }
+
+        androidTest {
+            // Add shared test directory to source of Instrumented Tests
+            java.srcDirs += sharedTestDir
+        }
+    }
+
+    buildTypes {
+        debug {
+            // Instagram API Base URL and Key
+            buildConfigField STRING, BASE_URL, BASE_URL_VAL
+            buildConfigField STRING, API_KEY, API_KEY_VAL
+
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+
+        staging {
+            initWith debug
+
+            // Shrink code and resources
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+        }
+
+        release {
+            // Instagram API Base URL and Key
+            buildConfigField STRING, BASE_URL, BASE_URL_VAL
+            buildConfigField STRING, API_KEY, API_KEY_VAL
+
+            // Shrink code and resources
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Automate App signing
+          //  signingConfig signingConfigs.release
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    // Target Java8
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    // Target Java8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    //testImplementation fileTree(dir: 'sharedTest', configuration :'unitTestArtifact')
+
+
+
+    // JARs
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Support library
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+
+    // Core KTX
+    implementation "androidx.core:core-ktx:$versions.core"
+
+    // Activity
+    implementation "androidx.activity:activity-ktx:$versions.activity"
+
+    // Fragment
+    implementation "androidx.fragment:fragment-ktx:$versions.fragment"
+
+    // Constraint Layout library
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+
+    // Material Design
+    implementation "com.google.android.material:material:$versions.material"
+
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
+
+    // CardView
+    implementation "androidx.cardview:cardview:$versions.cardview"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$versions.dagger"
+ //   implementation 'androidx.room:room-common:2.5.1'
+    androidTestImplementation project(path: ':app')
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+
+    // Database
+    implementation "androidx.room:room-runtime:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
+    implementation "androidx.room:room-rxjava2:$versions.room"
+
+    // Database Debugging
+    debugImplementation "com.amitshekhar.android:debug-db:$versions.debug_db"
+
+    // Image
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$versions.glide"
+
+    // ParaCamera for capturing Images
+    implementation "com.mindorks:paracamera:$versions.paracamera"
+
+    // PhotoView for viewing Photos
+    implementation "com.github.chrisbanes:PhotoView:$versions.photoview"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$versions.retrofit_rxjava_adapter"
+    implementation platform("com.squareup.okhttp3:okhttp-bom:$versions.okhttp")
+    implementation "com.squareup.okhttp3:okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor"
+
+    // Reactive
+    implementation "io.reactivex.rxjava3:rxjava:$versions.rxjava"
+    implementation "io.reactivex.rxjava3:rxandroid:$versions.rxandroid"
+
+    // Logger
+    implementation "com.jakewharton.timber:timber:$versions.timber"
+
+    // JSON de/serializer using Gson
+    implementation "com.google.code.gson:gson:$versions.gson"
+
+    // Local Unit Tests
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "org.mockito:mockito-inline:$versions.mockito"
+    testImplementation "android.arch.core:core-testing:$versions.core_testing"
+    testImplementation "org.hamcrest:hamcrest-library:$versions.hamcrest"
+    kaptTest "com.google.dagger:dagger-compiler:$versions.dagger"
+    testImplementation "com.google.truth:truth:$versions.truth"
+    testImplementation "androidx.test.ext:truth:$versions.test_ext_truth"
+
+    // UI Tests
+    androidTestImplementation "androidx.test:runner:$versions.test_runner"
+    androidTestImplementation "androidx.test.ext:junit:$versions.test_ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$versions.espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$versions.espresso"
+    androidTestImplementation "org.mockito:mockito-core:$versions.mockito"
+    debugImplementation("androidx.fragment:fragment-testing:$versions.fragment_testing") {
+        because 'debugImplementation is used here since the FragmentScenaro relies on an ' +
+                'empty activity which is only accessible by the test target process'
+    }
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$versions.dagger"
+    androidTestImplementation "com.google.truth:truth:$versions.truth"
+    androidTestImplementation "androidx.test.ext:truth:$versions.test_ext_truth"
+
+    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
+
+}

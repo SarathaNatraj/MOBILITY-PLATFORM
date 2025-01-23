@@ -1,75 +1,87 @@
-1. Add following lines in app's build.gradle, inside android block
-	viewBinding{
-        	enable = true;
-    	}
-2. Inside Activity/Fragment declare the binding variable
+1. Dependency Injection in Android
+2. Testing of Android Apps
 
-	binding classes should be xml file name with Binding at end of the filename
+class Address{
+	val streetName:String
+	val city:String
+	val pincode:String
 
-	private lateinit var binding: ActivityMainBinding
-
-3. Activity -> Inside onCreate method,we initialise the variable
-	
-	after the first line
-
-		binding = ActivityMainBinding.inflate(layoutInflater)
-		setContentView(binding.root) //R.layout.activity_main
-
-4. Access all the components using binding.xxx , no need for findViewById method, R.layout etc...
-
-5. If it is a Fragment, inside onCreateView method,
-
-		 binding = FragmentMainBinding.inflate(inflater, container, false)
-6. same as step 4
-
-
-
-
-DataBinding
-
-1. Add following lines in app's build.gradle, inside android block
-	dataBinding{
-        	enable = true;
-    	}
-2. In your back end code, generate ViewModel classes for each module, plain class extends ViewModel()
-
-3. Move your business logic ViewModel classes from the Activity/Fragments
-
-4. In your FrontEnd, AddVehicle / UpdateVehicle
-
-	<layout>
-	<data>
-		<variable name="vehicleViewModel" type="VehicleViewModel">
-	</data>
-
-
-
-
-
-	<LinerLayout >
-
-		<EditText
-			android:text="@{vehicleViewModel.vehicleName}"
-		/>
-
-		<Button text="Save USer"
-			android:onClick="vehicleViewModel.saveVehicle()">
-		</Button>
-
-	<LinearLayout>
-    <layout>
- 
-	
+	fun setHomeAddress(){
 		
+	}
+}
 
-	<data>
-		<variable name="userViewModel" type="UserViewModel">
-	</data>
+class Employee{
 
-5. in the corresponding fragment/activity
+	val name:String
+	val email:String
+	//val address:Address
+	
+val streetName:String
+	val city:String
+	val pincode:String
+	
 
- 	// Initialize ViewModel
-        val viewModel = DashboardViewModel()
+	
 
-        // Bind ViewModel to layout
-        binding.viewModel = viewModel
+}
+
+val addr = Address('XYZ Street', 'Hyderabad', '5689990')
+
+val e = Employee('chaitanya', 'chaitany@gmail.com', addr)
+
+
+class User{
+
+	val name:String,
+	val dob:Date,
+	val aadhar:String,
+	//val addr:Address
+
+	val streetName:String
+	val city:String
+	val pincode:String
+
+
+}
+
+val user = User('chaitanya', 12/12/2007,'784691255222', addr)
+
+
+
+
+class Customer{
+	val name:String,
+	val email:String,
+	//val addr:Address
+
+	val streetName:String
+	val city:String
+	val pincode:String
+
+}
+
+
+class Customer(val name:String, ... , val addr:Address){ // constructor based injection
+
+
+class Customer{
+	val name:String,
+	val email:String,
+	@Inject val addr:Address //field based injection
+
+	
+
+}
+
+
+
+Hilt & Dagger - popular DI libs
+
+Dagger- Full feature lib, resolves dependencies at compile time 
+Hilt - built on top of dagger, provides more Android-specific components, eliminates duplicate code
+
+Hilt Vs Dagger
+	  Hilt is easier, bcoz predefined annotation for Android components
+	  Automatically integrates with Activity, Fragment, ViewModel etc...
+	 easy to maintain, testing

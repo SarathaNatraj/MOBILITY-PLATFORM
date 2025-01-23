@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/card_post_like_item_elevation"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/card_post_like_item_cl_vertical_padding"
+        android:paddingBottom="@dimen/card_post_like_item_cl_vertical_padding">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_post_like_item_vertical_begin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/guideline_post_like_item_vertical_keyline" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_post_like_item_vertical_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/guideline_post_like_item_vertical_keyline" />
+
+        <ImageView
+            android:id="@+id/image_post_like_item_user_profile"
+            style="@style/PostLikeUserProfileImage"
+            android:contentDescription="@string/cd_image_post_like_item_user_profile"
+            app:layout_constraintStart_toEndOf="@+id/guideline_post_like_item_vertical_begin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/text_post_like_item_user_profile_handle"
+            style="@style/PostLikeUserProfileHandle"
+            app:layout_constraintBottom_toTopOf="@+id/text_post_like_item_user_profile_name"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_post_like_item_vertical_end"
+            app:layout_constraintStart_toEndOf="@+id/image_post_like_item_user_profile"
+            app:layout_constraintTop_toTopOf="@+id/image_post_like_item_user_profile"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/text_post_like_item_user_profile_name"
+            style="@style/PostLikeUserProfileName"
+            app:layout_constraintBottom_toBottomOf="@+id/image_post_like_item_user_profile"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_post_like_item_vertical_end"
+            app:layout_constraintStart_toEndOf="@+id/image_post_like_item_user_profile"
+            app:layout_constraintTop_toBottomOf="@+id/text_post_like_item_user_profile_handle"
+            tools:text="@tools:sample/full_names" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,55 @@
+/*
+ *  
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.sample.yogiraj.instagram.demo.data.local.db
+
+import androidx.room.TypeConverter
+import java.util.*
+
+/**
+ * [TypeConverter] class to aid Room with complex data type conversions.
+ *
+ * @
+ */
+class Converter {
+
+    /**
+     * For reading [Date] from the database.
+     */
+    @TypeConverter
+    fun toDate(timestamp: Long?): Date? = timestamp?.let { Date(it) }
+
+    /**
+     * For writing [Date] to the database.
+     */
+    @TypeConverter
+    fun toTimestamp(date: Date?): Long? = date?.time
+
+    /**
+     * For reading [List] of table's primary ids from a table column of the database.
+     */
+    @TypeConverter
+    fun toListOfIds(ids: String): List<Long> =
+        ids.split(",").map { idStr: String -> idStr.trim().toLong() }
+
+    /**
+     * For writing [List] of table's primary ids to a table column of the database.
+     */
+    @TypeConverter
+    fun toStringOfIds(idList: List<Long>?): String? =
+        idList?.joinToString(separator = ",")
+
+}

@@ -1,0 +1,633 @@
+<!--
+  ~
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- ==================================== -->
+    <!-- APP THEMES AND STYLES FOR COMPONENTS -->
+    <!-- ==================================== -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <!-- Base application theme with White Window background -->
+    <style name="AppTheme.Background.White" parent="AppTheme">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="AppThemeFullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name="AppTheme.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="AppTheme.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppTheme.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppTheme.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppTheme.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppTheme.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="AppTheme.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppTheme.Chip" parent="TextAppearance.MaterialComponents.Chip" />
+
+    <!-- Style for Custom App Bar -->
+    <style name="AppTheme.AppBarOverlay" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:elevation">@dimen/app_bar_elevation</item>
+    </style>
+
+    <!-- Style for Popups in Custom App Bar -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <!-- Style for Custom Toolbar -->
+    <style name="AppTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="android:theme">@style/ThemeOverlay.MaterialComponents.ActionBar</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- Style for Custom Bottom App Bar -->
+    <style name="AppTheme.BottomAppBarOverlay" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="hideOnScroll">true</item>
+    </style>
+
+    <!-- Style for the App Dialogs -->
+    <style name="AppTheme.MaterialAlertDialogOverlay" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <!-- Background color -->
+        <item name="colorSurface">@color/white</item>
+        <!-- Text color -->
+        <item name="colorOnSurface">?attr/colorPrimary</item>
+        <!-- Content Text Style -->
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Body.Text
+        </item>
+        <!-- Title Text Style -->
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <!-- Positive Button Style -->
+        <item name="buttonBarPositiveButtonStyle">@style/AppTheme.TextButton.Dialog</item>
+        <!-- Negative Button Style -->
+        <item name="buttonBarNegativeButtonStyle">@style/AppTheme.TextButton.Dialog</item>
+        <!-- Neutral Button Style -->
+        <item name="buttonBarNeutralButtonStyle">@style/AppTheme.TextButton.Dialog.Flush</item>
+    </style>
+
+    <!-- Style for Action Buttons in App Dialogs -->
+    <style name="AppTheme.TextButton.Dialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextButton.Dialog</item>
+    </style>
+
+    <!-- Style for Neutral Button in App Dialogs -->
+    <style name="AppTheme.TextButton.Dialog.Flush" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextButton.Dialog</item>
+    </style>
+
+    <!-- ThemeOverlay for Action Buttons in App Dialogs -->
+    <style name="ThemeOverlay.App.TextButton.Dialog" parent="">
+        <!-- Button Color when enabled -->
+        <item name="colorPrimary">?attr/colorAccent</item>
+        <!-- Button Color when disabled -->
+        <item name="colorOnSurface">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Style for Content Text in App Dialogs -->
+    <style name="MaterialAlertDialog.App.Body.Text" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textAppearance">@style/AppTheme.Body2</item>
+    </style>
+
+    <!-- Style for Title Text in App Dialogs -->
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/AppTheme.Subtitle1</item>
+    </style>
+
+    <!-- ================== -->
+    <!-- COMMON/BASE STYLES -->
+    <!-- ================== -->
+    <!-- Common Style for Horizontal Divider -->
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">@dimen/match_constraint_0dp</item>
+        <item name="android:layout_height">@dimen/divider_height</item>
+        <item name="android:background">@color/gray_light</item>
+    </style>
+
+    <!-- Common Style for Indeterminate ProgressBar Horizontal -->
+    <style name="ProgressIndeterminateHorizontal" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/progress_horizontal_height</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
+    <!-- Base Style for Post Creator's Profile Picture -->
+    <style name="BasePostCreatorProfileImage">
+        <item name="android:layout_width">@dimen/image_post_creator_profile_size</item>
+        <item name="android:layout_height">@dimen/image_post_creator_profile_size</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Base Style for Post Creator's Profile Name -->
+    <style name="BasePostCreatorProfileName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/text_post_creator_name_margin_start</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAppearance">@style/AppTheme.Body1</item>
+    </style>
+
+    <!-- Base Style for Post's Photo -->
+    <style name="BasePostImage">
+        <item name="android:layout_width">@dimen/match_constraint_0dp</item>
+        <item name="android:layout_height">@dimen/match_constraint_0dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Base Style for the Number of Likes on the Post -->
+    <style name="BasePostLikeCount">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/AppTheme.Body2</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Base Style for the Creation Time of the Post -->
+    <style name="BasePostCreationTime">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/AppTheme.Body2</item>
+    </style>
+
+    <!-- ========================== -->
+    <!-- STYLES FOR SPLASH ACTIVITY -->
+    <!-- ========================== -->
+    <!-- Common Style for the logo in SplashActivity, LoginActivity -->
+    <style name="SplashLogo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/image_splash_logo_height</item>
+        <item name="srcCompat">@drawable/instagram_logo</item>
+    </style>
+
+    <!-- ===================================== -->
+    <!-- STYLES FOR LOGIN AND SIGN-UP ACTIVITY -->
+    <!-- ===================================== -->
+    <!-- Base Style for TextInputLayouts -->
+    <style name="LoginSignUpTextInputFields" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">@dimen/match_constraint_0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/login_sign_up_fields_vertical_margin</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconDrawable">@drawable/ic_clear</item>
+        <item name="materialThemeOverlay">@style/LoginSignUpTextInputFieldsOverlay</item>
+        <item name="boxBackgroundColor">@color/loginSignUpTextInputBoxBackgroundColor</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <!-- Theme Overlay for TextInputLayouts -->
+    <style name="LoginSignUpTextInputFieldsOverlay">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorOnSurface">@color/loginSignUpTextInputBoxOnSurfaceColor</item>
+        <item name="editTextStyle">
+            @style/LoginSignUpTextInputEditTextFieldStyle
+        </item>
+    </style>
+
+    <!-- Edit Text Style for TextInputLayouts -->
+    <style name="LoginSignUpTextInputEditTextFieldStyle" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+        <item name="android:textAppearance">@style/AppTheme.Subtitle1</item>
+    </style>
+
+    <!-- Base Style for TextInputEditTexts -->
+    <style name="LoginSignUpEditTextFields">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- Base Button Style for Login or Sign-Up action -->
+    <style name="LoginSignUpButton" parent="AppTheme.Button">
+        <item name="android:layout_width">@dimen/match_constraint_0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/login_sign_up_fields_vertical_margin</item>
+        <item name="android:textSize">@dimen/button_login_sign_up_text_size</item>
+        <item name="android:paddingTop">@dimen/button_login_sign_up_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/button_login_sign_up_vertical_padding</item>
+        <item name="backgroundTint">@color/blue</item>
+    </style>
+
+    <!-- Derived Button Style for Login action -->
+    <style name="LoginSignUpButton.Login">
+        <item name="android:text">@string/label_button_login</item>
+    </style>
+
+    <!-- Derived Button Style for Sign-Up action -->
+    <style name="LoginSignUpButton.SignUp">
+        <item name="android:text">@string/label_button_sign_up</item>
+    </style>
+
+    <!-- Base Text Button Style for optional Login/Sign-Up with Email action -->
+    <style name="LoginSignUpTextButton" parent="AppTheme.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/text_button_login_sign_up_option_margin_top</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textAppearance">@style/AppTheme.Subtitle1</item>
+    </style>
+
+    <!-- Derived Text Button Style for optional Sign-Up -->
+    <style name="LoginSignUpTextButton.OptionSignUp">
+        <item name="android:text">@string/label_text_button_login_option_sign_up</item>
+    </style>
+
+    <!-- Derived Text Button Style for optional Login -->
+    <style name="LoginSignUpTextButton.OptionLogin">
+        <item name="android:text">@string/label_text_button_sign_up_option_login</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Email field -->
+    <style name="LoginSignUpEditTextFields.Email">
+        <item name="android:hint">@string/hint_login_sign_up_email</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <!-- Derived TextInputLayout Style for Password field -->
+    <style name="LoginSignUpTextInputFields.Password">
+        <item name="endIconMode">password_toggle</item>
+        <item name="endIconDrawable">@drawable/design_password_eye</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Password field -->
+    <style name="LoginSignUpEditTextFields.Password">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:maxLength">50</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Password field in Login Activity -->
+    <style name="LoginSignUpEditTextFields.Password.Login">
+        <item name="android:hint">@string/hint_login_password</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Password field in Sign-Up Activity -->
+    <style name="LoginSignUpEditTextFields.Password.SignUp">
+        <item name="android:hint">@string/hint_sign_up_password</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Name field in Sign-Up Activity -->
+    <style name="LoginSignUpEditTextFields.UserName">
+        <item name="android:hint">@string/hint_sign_up_name</item>
+        <item name="android:inputType">textPersonName|textCapWords</item>
+        <item name="android:maxLength">100</item>
+    </style>
+
+    <!-- Derived HorizontalDivider Style for the Login or Sign-Up options -->
+    <style name="DividerLoginSignUpOptions" parent="HorizontalDivider">
+        <item name="android:layout_marginTop">@dimen/divider_login_sign_up_margin_top</item>
+    </style>
+
+    <!-- Style for the text overlay on Login/Sign-Up options divider -->
+    <style name="LabelDividerLoginSignUpOptions">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/label_login_sign_up_divider</item>
+        <item name="android:textSize">@dimen/text_login_sign_up_divider_size</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingTop">@dimen/text_login_sign_up_divider_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/text_login_sign_up_divider_vertical_padding</item>
+        <item name="android:paddingStart">@dimen/text_login_sign_up_divider_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/text_login_sign_up_divider_horizontal_padding</item>
+    </style>
+
+    <!-- ======================== -->
+    <!-- STYLES FOR HOME FRAGMENT -->
+    <!-- ======================== -->
+    <!-- Derived Style for Post Creator's Profile Picture -->
+    <style name="HomePostCreatorProfileImage" parent="BasePostCreatorProfileImage" />
+
+    <!-- Derived Style for Post Creator's Profile Name -->
+    <style name="HomePostCreatorProfileName" parent="BasePostCreatorProfileName">
+        <item name="layout_constrainedWidth">true</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
+    </style>
+
+    <!-- Derived Style for Post's Photo -->
+    <style name="HomePostImage" parent="BasePostImage">
+        <item name="android:layout_marginTop">@dimen/image_home_item_post_photo_margin_top</item>
+    </style>
+
+    <!-- Derived Style for the Number of Likes on the Post -->
+    <style name="HomePostLikeCount" parent="BasePostLikeCount">
+        <item name="android:layout_marginStart">@dimen/text_home_item_post_like_count_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/text_home_item_post_like_count_margin_end</item>
+        <item name="layout_constrainedWidth">true</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
+    </style>
+
+    <!-- Derived Style for the Creation Time of the Post -->
+    <style name="HomePostCreationTime" parent="BasePostCreationTime">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <!-- ================================ -->
+    <!-- STYLES FOR EDIT PROFILE ACTIVITY -->
+    <!-- ================================ -->
+    <!-- Base Style for TextInputLayouts -->
+    <style name="EditProfileTextInputFields" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_width">@dimen/match_constraint_0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextAppearance">@style/AppTheme.Subtitle1</item>
+        <item name="hintTextColor">@color/gray</item>
+        <item name="boxCollapsedPaddingTop">
+            @dimen/edit_profile_input_fields_collapsed_padding_top
+        </item>
+        <item name="materialThemeOverlay">@style/EditProfileTextInputFieldsOverlay</item>
+        <item name="expandedHintEnabled">false</item>
+    </style>
+
+    <!-- Theme Overlay for TextInputLayouts -->
+    <style name="EditProfileTextInputFieldsOverlay">
+        <item name="editTextStyle">@style/EditProfileTextInputEditTextFieldStyle</item>
+    </style>
+
+    <!-- Edit Text Style for TextInputLayouts -->
+    <style name="EditProfileTextInputEditTextFieldStyle" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:textAppearance">@style/AppTheme.Subtitle1</item>
+        <item name="android:paddingLeft">
+            @dimen/edit_profile_input_edit_text_fields_horizontal_padding
+        </item>
+        <item name="android:paddingStart">
+            @dimen/edit_profile_input_edit_text_fields_horizontal_padding
+        </item>
+        <item name="android:paddingRight">
+            @dimen/edit_profile_input_edit_text_fields_horizontal_padding
+        </item>
+        <item name="android:paddingEnd">
+            @dimen/edit_profile_input_edit_text_fields_horizontal_padding
+        </item>
+        <item name="android:paddingTop">@dimen/edit_profile_input_edit_text_fields_padding_top
+        </item>
+        <item name="android:paddingBottom">
+            @dimen/edit_profile_input_edit_text_fields_padding_bottom
+        </item>
+    </style>
+
+    <!-- Base Style for TextInputEditTexts -->
+    <style name="EditProfileEditTextFields">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- Derived TextInputLayout Style for Name field -->
+    <style name="EditProfileTextInputFields.UserName">
+        <item name="android:hint">@string/hint_edit_profile_name</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Name field -->
+    <style name="EditProfileEditTextFields.UserName">
+        <item name="android:hint">@string/hint_edit_profile_name</item>
+        <item name="android:inputType">textPersonName|textCapWords</item>
+        <item name="android:maxLength">100</item>
+    </style>
+
+    <!-- Derived TextInputLayout Style for Bio field -->
+    <style name="EditProfileTextInputFields.Bio">
+        <item name="android:hint">@string/hint_edit_profile_bio</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Bio field -->
+    <style name="EditProfileEditTextFields.Bio">
+        <item name="android:hint">@string/hint_edit_profile_bio</item>
+        <item name="android:inputType">textShortMessage|textMultiLine|textCapSentences|textAutoComplete</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <!-- Derived TextInputLayout Style for Email field -->
+    <style name="EditProfileTextInputFields.Email">
+        <item name="android:hint">@string/hint_edit_profile_email</item>
+    </style>
+
+    <!-- Derived TextInputEditText Style for Email field -->
+    <style name="EditProfileEditTextFields.Email">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- =========================================================== -->
+    <!-- STYLES FOR PHOTO FRAGMENT AND PHOTO OPTIONS DIALOG FRAGMENT -->
+    <!-- =========================================================== -->
+    <!-- Base Style for Icons -->
+    <style name="PhotoOptionsIcon">
+        <item name="android:layout_width">@dimen/image_photo_option_icon_size</item>
+        <item name="android:layout_height">@dimen/image_photo_option_icon_size</item>
+    </style>
+
+    <!-- Derived Style for Camera Icon -->
+    <style name="PhotoOptionsIcon.Camera">
+        <item name="android:src">@drawable/ic_camera</item>
+    </style>
+
+    <!-- Derived Style for Gallery Icon -->
+    <style name="PhotoOptionsIcon.Gallery">
+        <item name="android:src">@drawable/ic_gallery</item>
+    </style>
+
+    <!-- Base Style for Icon Labels -->
+    <style name="PhotoOptionsLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/AppTheme.Subtitle1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/text_photo_option_label_margin_top</item>
+    </style>
+
+    <!-- Derived Style for Camera Icon Label -->
+    <style name="PhotoOptionsLabel.Camera">
+        <item name="android:text">@string/label_photo_option_camera</item>
+    </style>
+
+    <!-- Derived Style for Gallery Icon Label -->
+    <style name="PhotoOptionsLabel.Gallery">
+        <item name="android:text">@string/label_photo_option_gallery</item>
+    </style>
+
+    <!-- Style for the background of Icons -->
+    <style name="PhotoOptionsBackground">
+        <item name="android:layout_width">@dimen/view_photo_option_background_size</item>
+        <item name="android:layout_height">@dimen/view_photo_option_background_size</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- =============================== -->
+    <!-- STYLES FOR POST DETAIL ACTIVITY -->
+    <!-- =============================== -->
+    <!-- Derived Style for Post Creator's Profile Picture -->
+    <style name="PostDetailCreatorProfileImage" parent="BasePostCreatorProfileImage">
+        <item name="android:layout_marginBottom">@dimen/image_post_detail_creator_profile_margin_bottom</item>
+    </style>
+
+    <!-- Derived Style for Post Creator's Profile Name -->
+    <style name="PostDetailCreatorProfileName" parent="BasePostCreatorProfileName">
+        <item name="android:textColor">@color/white</item>
+        <item name="layout_constrainedWidth">true</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
+    </style>
+
+    <!-- Derived Style for the Creation Time of the Post -->
+    <style name="PostDetailCreationTime" parent="BasePostCreationTime">
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <!-- Derived Style for the Number of Likes on the Post -->
+    <style name="PostDetailLikeCount" parent="BasePostLikeCount">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <!-- Derived Style for Post's Photo -->
+    <style name="PostDetailImage" parent="BasePostImage">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- Style for the Launch Icon on the Photo -->
+    <style name="PostDetailPhotoLaunchIcon">
+        <item name="android:layout_width">@dimen/image_post_detail_photo_launch_size</item>
+        <item name="android:layout_height">@dimen/image_post_detail_photo_launch_size</item>
+        <item name="android:layout_marginTop">@dimen/image_post_detail_photo_launch_corner_margin</item>
+        <item name="android:layout_marginEnd">@dimen/image_post_detail_photo_launch_corner_margin</item>
+        <item name="android:src">@drawable/layer_post_detail_photo_launch</item>
+    </style>
+
+    <!-- ============================= -->
+    <!-- STYLES FOR POST LIKE ACTIVITY -->
+    <!-- ============================= -->
+    <!-- Derived Style for the Liked By User's Profile Picture -->
+    <style name="PostLikeUserProfileImage" parent="BasePostCreatorProfileImage" />
+
+    <!-- Base Style for the Liked By User's Profile Name -->
+    <style name="BasePostLikeUserProfileName" parent="BasePostCreatorProfileName">
+        <item name="android:layout_marginStart">@dimen/text_post_like_item_user_profile_name_margin_start</item>
+        <item name="layout_constrainedWidth">true</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
+    </style>
+
+    <!-- Derived Style for the Liked By User's Profile Handle -->
+    <style name="PostLikeUserProfileHandle" parent="BasePostLikeUserProfileName">
+        <item name="android:textAppearance">@style/AppTheme.Body2</item>
+    </style>
+
+    <!-- Derived Style for the Liked By User's Profile Name -->
+    <style name="PostLikeUserProfileName" parent="BasePostLikeUserProfileName">
+        <item name="android:layout_marginTop">@dimen/text_post_like_item_user_profile_name_margin_top</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+</resources>

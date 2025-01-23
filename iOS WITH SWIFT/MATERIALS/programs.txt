@@ -1,0 +1,41 @@
+
+
+var greeting = "Hello, World!"
+print(greeting)
+for i in 1...5 {
+    print("Number \(i)")
+}
+func greet(name: String) -> String {
+    return "Hello, \(name)!"
+}
+
+print(greet(name: "Pragati"))
+
+
+let numbers = [1, 2, 3, 4, 5]
+
+let squaredNumbers = numbers.map { $0 * $0 }
+print(squaredNumbers)
+
+
+import Foundation
+
+let jsonString = """
+{
+    "name": "Pragati",
+    "age": 25,
+    "isDeveloper": true
+}
+"""
+
+if let jsonData = jsonString.data(using: .utf8) {
+    do {
+        if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+            print("Name: \(json["name"] ?? "")")
+            print("Age: \(json["age"] ?? "")")
+            print("Is Developer: \(json["isDeveloper"] ?? "")")
+        }
+    } catch {
+        print("Error parsing JSON: \(error)")
+    }
+}

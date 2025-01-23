@@ -1,16 +1,5 @@
-1. Add navigation dependencies in app's build.gradle
-2. Create a Android Resource directory (navigation as resource type)
-3. Create nav_graph.xml inside navigation folder
-4. activity_main.xml , create a fragment with 
-	  anoid:name="androidx.navigation.fragment.NavHostFragment"
-	  app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"
-5.Inside MainActivity initialise the Navigation Controller
-6. Create multiple fragments/activities and xml
-7. Open nav_graph.xml click on + symbol, add the fragments
-8. Select the particular fragment, provide actions
-9. Inside fragment, on button click listener, call 
-	findNavController().navigate(destination)
-
-
-	
+1. Make dependencies are there in app's build.gradle
+2. androidTest -> each and every activity/fragment you have write Kotlin test class
+3. create activitysceariorule for which activity/fragment to be loaded for running test class
+4. write n of test cases each with @Test annotation
+5. ViewMatcher, View Actions, View Assertions

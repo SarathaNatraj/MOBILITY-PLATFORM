@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- MATCH CONSTRAINT Dimension used for ConstraintLayouts -->
+    <dimen name="match_constraint_0dp">0dp</dimen>
+
+    <!-- Common Divider Height -->
+    <dimen name="divider_height">1dp</dimen>
+
+    <!-- Common ProgressBar Horizontal Height -->
+    <dimen name="progress_horizontal_height">4dp</dimen>
+
+    <!-- Dialog Padding applied when Custom View is set -->
+    <dimen name="dialog_custom_view_vertical_padding">24dp</dimen>
+    <dimen name="dialog_custom_view_horizontal_padding">16dp</dimen>
+
+    <!-- Common spacing applied between the items in a RecyclerView List -->
+    <dimen name="all_list_items_spacing">2dp</dimen>
+
+    <!-- =========== -->
+    <!-- FOR APP BAR -->
+    <!-- =========== -->
+    <dimen name="app_bar_elevation">4dp</dimen>
+
+    <!-- ================================= -->
+    <!-- FOR PROGRESS TEXT DIALOG FRAGMENT -->
+    <!-- ================================= -->
+    <dimen name="text_progress_circle_status_margin_start">8dp</dimen>
+
+    <!-- ======================== -->
+    <!-- FOR THE COMMON POST DATA -->
+    <!-- ======================== -->
+    <dimen name="image_post_creator_profile_size">38dp</dimen>
+    <dimen name="text_post_creator_name_margin_start">12dp</dimen>
+
+    <!-- =================== -->
+    <!-- FOR SPLASH ACTIVITY -->
+    <!-- =================== -->
+    <dimen name="image_splash_logo_height">58dp</dimen>
+
+    <!-- ================== -->
+    <!-- FOR LOGIN ACTIVITY -->
+    <!-- ================== -->
+    <dimen name="text_input_login_email_margin_top">42dp</dimen>
+
+    <!-- ============================== -->
+    <!-- FOR LOGIN AND SIGN-UP ACTIVITY -->
+    <!-- ============================== -->
+    <dimen name="guideline_login_sign_up_vertical_keyline">30dp</dimen>
+    <dimen name="login_sign_up_fields_vertical_margin">16dp</dimen>
+    <dimen name="button_login_sign_up_text_size">18sp</dimen>
+    <dimen name="button_login_sign_up_vertical_padding">8dp</dimen>
+    <dimen name="text_button_login_sign_up_option_margin_top">24dp</dimen>
+    <dimen name="text_login_sign_up_divider_vertical_padding">8dp</dimen>
+    <dimen name="text_login_sign_up_divider_horizontal_padding">16dp</dimen>
+    <dimen name="text_login_sign_up_divider_size">18sp</dimen>
+    <dimen name="divider_login_sign_up_margin_top">45dp</dimen>
+
+    <!-- ==================== -->
+    <!-- FOR SIGN-UP ACTIVITY -->
+    <!-- ==================== -->
+    <dimen name="image_sign_up_profile_size">80dp</dimen>
+    <dimen name="text_input_sign_up_name_margin_top">41dp</dimen>
+
+    <!-- ================= -->
+    <!-- FOR MAIN ACTIVITY -->
+    <!-- ================= -->
+    <dimen name="view_main_bottom_nav_shadow_height">8dp</dimen>
+    <dimen name="bottom_nav_main_elevation">8dp</dimen>
+
+    <!-- ================= -->
+    <!-- FOR HOME FRAGMENT -->
+    <!-- ================= -->
+    <dimen name="image_home_app_bar_logo_height">32dp</dimen>
+    <dimen name="card_home_item_elevation">2dp</dimen>
+    <dimen name="card_home_item_cl_padding_top">8dp</dimen>
+    <dimen name="card_home_item_cl_padding_bottom">16dp</dimen>
+    <dimen name="guideline_home_item_vertical_keyline">16dp</dimen>
+    <dimen name="image_home_item_post_photo_margin_top">8dp</dimen>
+    <dimen name="imgbtn_home_item_toggle_post_like_size">32dp</dimen>
+    <dimen name="imgbtn_home_item_toggle_post_like_margin_top">8dp</dimen>
+    <dimen name="text_home_item_post_like_count_margin_start">2dp</dimen>
+    <dimen name="text_home_item_post_like_count_margin_end">8dp</dimen>
+    <dimen name="home_item_list_spacing">4dp</dimen>
+
+    <!-- ==================================================== -->
+    <!-- FOR PHOTO FRAGMENT AND PHOTO OPTIONS DIALOG FRAGMENT -->
+    <!-- ==================================================== -->
+    <dimen name="view_photo_option_background_size">96dp</dimen>
+    <dimen name="image_photo_option_icon_size">48dp</dimen>
+    <dimen name="text_photo_option_label_margin_top">5dp</dimen>
+    <dimen name="photo_options_space">110dp</dimen>
+
+    <!-- ==================== -->
+    <!-- FOR PROFILE FRAGMENT -->
+    <!-- ==================== -->
+    <dimen name="guideline_profile_vertical_keyline">16dp</dimen>
+    <dimen name="guideline_profile_horizontal_keyline">16dp</dimen>
+    <dimen name="image_profile_user_size">86dp</dimen>
+    <dimen name="image_profile_user_margin_top">16dp</dimen>
+    <dimen name="text_profile_user_name_margin_top">12dp</dimen>
+    <dimen name="text_profile_post_count_margin_start">42dp</dimen>
+    <dimen name="text_profile_post_count_margin_top">8dp</dimen>
+    <dimen name="button_profile_edit_vertical_inset">8dp</dimen>
+    <dimen name="button_profile_edit_vertical_padding">2dp</dimen>
+    <dimen name="text_profile_user_bio_margin_top">8dp</dimen>
+    <dimen name="text_profile_my_posts_title_margin_top">8dp</dimen>
+    <dimen name="image_profile_posts_empty_horizontal_margin">28dp</dimen>
+    <dimen name="image_profile_posts_empty_margin_top">16dp</dimen>
+    <dimen name="text_profile_no_posts_title_margin_top">12dp</dimen>
+    <dimen name="text_profile_no_posts_desc_margin_top">10dp</dimen>
+    <dimen name="divider_profile_bio_posts_1_margin_top">16dp</dimen>
+    <dimen name="divider_profile_bio_posts_2_margin_top">8dp</dimen>
+    <dimen name="profile_item_grid_spacing">2dp</dimen>
+
+    <!-- ========================= -->
+    <!-- FOR EDIT PROFILE ACTIVITY -->
+    <!-- ========================= -->
+    <dimen name="edit_profile_input_fields_collapsed_padding_top">0dp</dimen>
+    <dimen name="edit_profile_input_edit_text_fields_horizontal_padding">0dp</dimen>
+    <dimen name="edit_profile_input_edit_text_fields_padding_top">28dp</dimen>
+    <dimen name="edit_profile_input_edit_text_fields_padding_bottom">12dp</dimen>
+    <dimen name="text_edit_profile_toolbar_title_margin_start">20dp</dimen>
+    <dimen name="guideline_edit_profile_vertical_keyline">30dp</dimen>
+    <dimen name="image_edit_profile_change_pic_size">80dp</dimen>
+    <dimen name="image_edit_profile_change_pic_margin_top">16dp</dimen>
+    <dimen name="text_button_edit_profile_change_pic_margin_top">4dp</dimen>
+    <dimen name="text_input_edit_profile_name_margin_top">36dp</dimen>
+    <dimen name="text_input_edit_profile_bio_margin_top">16dp</dimen>
+    <dimen name="divider_edit_profile_public_private_info_margin_top">16dp</dimen>
+    <dimen name="text_edit_profile_private_info_title_margin_top">16dp</dimen>
+    <dimen name="text_input_edit_profile_email_margin_top">14dp</dimen>
+
+    <!-- ======================== -->
+    <!-- FOR POST DETAIL ACTIVITY -->
+    <!-- ======================== -->
+    <dimen name="guideline_post_detail_vertical_keyline">16dp</dimen>
+    <dimen name="image_post_detail_creator_profile_margin_bottom">16dp</dimen>
+    <dimen name="text_post_detail_likes_title_vertical_margin">8dp</dimen>
+    <dimen name="image_post_detail_photo_launch_size">28dp</dimen>
+    <dimen name="image_post_detail_photo_launch_corner_margin">8dp</dimen>
+    <dimen name="post_detail_likes_list_bottom_offset">36dp</dimen>
+
+    <!-- ====================== -->
+    <!-- FOR POST LIKE ACTIVITY -->
+    <!-- ====================== -->
+    <dimen name="card_post_like_item_elevation">2dp</dimen>
+    <dimen name="card_post_like_item_cl_vertical_padding">12dp</dimen>
+    <dimen name="guideline_post_like_item_vertical_keyline">16dp</dimen>
+    <dimen name="text_post_like_item_user_profile_name_margin_start">8dp</dimen>
+    <dimen name="text_post_like_item_user_profile_name_margin_top">4dp</dimen>
+    <dimen name="bottom_app_bar_post_like_content_margin_end">16dp</dimen>
+    <dimen name="image_post_like_heart_size">28dp</dimen>
+    <dimen name="text_post_like_count_margin_start">2dp</dimen>
+
+    <!-- =================== -->
+    <!-- FOR NO LIKES LAYOUT -->
+    <!-- =================== -->
+    <dimen name="no_likes_content_vertical_margin">36dp</dimen>
+    <dimen name="text_no_likes_title_margin_top">12dp</dimen>
+    <dimen name="text_no_likes_desc_margin_top">10dp</dimen>
+    <dimen name="image_no_likes_height_max">180dp</dimen>
+
+    <!-- ============================ -->
+    <!-- FOR IMMERSIVE PHOTO ACTIVITY -->
+    <!-- ============================ -->
+    <dimen name="image_immersive_photo_close_size">48dp</dimen>
+    <dimen name="image_immersive_photo_close_padding">4dp</dimen>
+    <dimen name="image_immersive_photo_close_corner_margin">16dp</dimen>
+
+</resources>

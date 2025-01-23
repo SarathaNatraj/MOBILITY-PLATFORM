@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="yogiraj.instagram.demo"
+    android:installLocation="auto">
+
+    <!-- Internet permission to communicate with Remote API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permission to read network state -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows storing screenshots on external storage, where it can be accessed by ADB -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+
+    <!-- Allows changing locales -->
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Allows changing SystemUI demo mode -->
+    <uses-permission
+        android:name="android.permission.DUMP"
+        tools:ignore="ProtectedPermissions" />
+
+
+
+    <application
+        android:name="com.sample.yogiraj.instagram.demo.InstagramApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Activity for viewing Post Photo in Immersive mode -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.detail.photo.ImmersivePhotoActivity"
+            android:theme="@style/AppThemeFullscreen" />
+
+        <!-- Activity for viewing Likes on a Post -->
+        <activity android:name="com.sample.yogiraj.instagram.demo.ui.like.PostLikeActivity" />
+
+        <!-- Activity for viewing Post details -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.detail.PostDetailActivity"
+            android:parentActivityName="com.sample.yogiraj.instagram.demo.ui.main.MainActivity" />
+
+        <!-- Activity for editing User profile details -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.profile.edit.EditProfileActivity"
+            android:theme="@style/AppTheme.Background.White" />
+
+        <!-- Activity for User registration -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.signup.SignUpActivity"
+            android:theme="@style/AppTheme.Background.White" />
+
+        <!-- Activity for User Login -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.login.LoginActivity"
+            android:theme="@style/AppTheme.Background.White" />
+
+        <!-- Activity for Splash screen -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.splash.SplashActivity"
+            android:theme="@style/AppTheme.Background.White">
+            <!-- This Activity is the Main entry point to the application -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity for Main screen -->
+        <activity
+            android:name="com.sample.yogiraj.instagram.demo.ui.main.MainActivity"
+            android:launchMode="singleTop" />
+
+        <!-- Alias Activity to Splash Activity which acts as a Launcher -->
+        <activity-alias
+            android:name=".LauncherActivity"
+            android:targetActivity="com.sample.yogiraj.instagram.demo.ui.splash.SplashActivity">
+            <!-- This Alias is the Main entry point, and should appear in the app launcher -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Pre-loading fonts to decrease load time -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

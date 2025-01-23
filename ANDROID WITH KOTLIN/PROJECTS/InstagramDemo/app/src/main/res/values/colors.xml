@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- App Theme Colors -->
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorSecondary">#4A90E2</color>
+    <color name="colorAccent">#FF0266</color>
+
+    <!-- Other Colors used in the App -->
+    <color name="blue">#4A90E2</color>
+    <color name="black">#000000</color>
+    <color name="gray">#aaa</color>
+    <color name="gray_light">#ddd</color>
+    <color name="status_bar">#F7F7F7</color>
+    <color name="red">#D0021B</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Color used by system bars while in Immersive mode -->
+    <color name="immersiveModeSystemBarColor">#64000000</color>
+
+    <!-- ========================================= -->
+    <!-- COLORS USED IN LOGIN AND SIGN-UP ACTIVITY -->
+    <!-- ========================================= -->
+    <color name="loginSignUpTextInputBoxOnSurfaceColor">#808080</color>
+    <color name="loginSignUpTextInputBoxBackgroundColor">#FAFAFA</color>
+
+    <!-- =============================== -->
+    <!-- COLORS USED IN PROFILE FRAGMENT -->
+    <!-- =============================== -->
+    <color name="profileMyPostsBackgroundColor">#f3f3f3</color>
+
+    <!-- =================================== -->
+    <!-- COLORS USED IN POST DETAIL ACTIVITY -->
+    <!-- =================================== -->
+    <color name="postDetailLikesBackgroundColor">#f3f3f3</color>
+
+    <!-- ================================= -->
+    <!-- COLORS USED IN POST LIKE ACTIVITY -->
+    <!-- ================================= -->
+    <color name="postLikeBottomAppBarColor">#FD6C20</color>
+
+</resources>

@@ -1,0 +1,10 @@
+*.iml
+.gradle
+/local.properties
+/instagram_api.properties
+/keystore.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
