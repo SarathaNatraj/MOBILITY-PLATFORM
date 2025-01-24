@@ -1,0 +1,32 @@
+func greet(_ name:String,_ age: Int){
+  print("Hello, \(name), You are  \(age) years old. ")
+}
+
+greet("Alice", 25)
+
+
+func purchase(_ item:Int, account : String, isDigital: Bool){
+  print("\(account) : \(isDigital)")
+}
+
+purchase(1256, account:"WEE345", isDigital:true)
+
+//purchase(1256, account:"WEE345", isDigital:true)
+
+
+func showMessage(message textToShow : String){
+  print("\(textToShow)")
+}
+
+showMessage(message:"Hello Swift !!")
+
+
+//to - endvalue - exclusive
+for i in stride(from : 0, to : 300, by : 100){
+  print(i)
+}
+
+//through - endvalue - inclusive
+for i in stride(from : 0, through : 300, by : 100){
+  print(i)
+}

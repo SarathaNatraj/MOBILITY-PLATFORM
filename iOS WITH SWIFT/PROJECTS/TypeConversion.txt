@@ -1,0 +1,47 @@
+import Foundation
+
+let hello:Any = "Hello, world!"
+
+if hello is String{
+  print("This is a string")
+}
+
+
+//null - other lanaguage
+//nil 
+
+//Converting String to double
+
+let stringNumber = "123.45"
+let doubleValue = Double(stringNumber)
+
+print("Converted double value : \(doubleValue!)")
+
+//converting Double to String
+
+let double = 123.34
+let stringValue = String(double)
+print(" Converted to String : \(stringValue)")
+
+
+//Upcasting 
+
+class Animal {} //base class
+
+class Dog : Animal {} //sub class
+
+let dog:Dog = Dog()
+let animal:Animal = dog //
+
+
+//Downcasting
+let subAnimal:Animal = Dog()
+
+//as? -safe downcasting
+
+if let dog1 = subAnimal as? Dog{
+  print(" Downcasting is success :\(dog1)")
+
+}else{
+  print("Downcasting is failed")
+}

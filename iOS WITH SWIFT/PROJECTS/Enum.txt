@@ -1,0 +1,99 @@
+import Foundation
+
+struct Medication{
+  let name: String
+  let dosage : String
+  let schedule : [String]
+  let startDate : Date
+  let endDate : Date?
+}
+
+
+struct Reminder {
+  let medicationName : String
+  let time : String
+  var isCompleted : Bool
+}
+
+
+
+//create obj medication
+
+let medication = Medication(name: "Paracetmol", dosage: "500 mg",
+                          schedule : ["8.00 AM", "02.00 PM", "06.00 PM"],
+                          startDate: Date(),
+                          endDate: nil)
+
+print(medication)
+
+
+enum Direction {
+  case north
+  case south
+  case east
+  case west
+}
+
+
+var currentDirection = Direction.north
+print(currentDirection)
+currentDirection = .east
+print(currentDirection)
+
+
+enum Planet : Int {
+  case mercury  = 1
+  case venus 
+  case earth 
+  case mars
+}
+
+let planet = Planet.earth
+print(planet)
+
+enum DayOfWeek : CaseIterable{
+  case monday, tuesday, wednesday
+}
+
+
+for day in DayOfWeek.allCases{
+  print(day)
+}
+
+
+enum Status : Equatable{
+  case success
+  case failure
+}
+
+let status1 = Status.success
+let status2 = Status.failure
+let status3 = Status.success
+
+print( status1 == status3)
+print( status2 == status3)
+
+
+
+
+
+enum Temperature{
+  case celesius(Double)
+  case fahrenhit(Double)
+
+  var description : String {
+
+    switch self{
+      case .celesius(let value): 
+          return "\(value) C"
+      case .fahrenhit(let value):
+          return "\(value) F"
+    }
+  }
+}
+
+let tempInCelesius = Temperature.celesius(25)
+let tempInFahrenhit = Temperature.fahrenhit(77)
+
+print(tempInCelesius.description)
+print(tempInFahrenhit.description)

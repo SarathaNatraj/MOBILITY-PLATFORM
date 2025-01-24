@@ -1,0 +1,21 @@
+//Optionals
+var name:String? = "hjghj"
+
+print("Name : \(name)")
+
+name=nil
+print("Name : \(name)")
+
+
+//?? - nil coalescing operator
+var newName:String? = nil
+let displayName = name ?? "Guest"
+print(displayName)
+
+
+var myName:String? = "Swift"
+print(myName!)
+
+
+var daysForNextTrip:Int? = 45
+print(daysForNextTrip!)

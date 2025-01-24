@@ -1,0 +1,25 @@
+
+//Other Lang
+if (condition) {
+	//stmts
+	
+}
+
+if somecondition {
+	//stmts
+}
+
+
+
+class Animal{}
+
+class Dog : Animal{}
+
+val dog = Dog()
+
+val subAnimal:Animal = (Animal)dog
+
+
+
+listOf -> immutable list
+mutableListOf -> mutable list
