@@ -1,0 +1,24 @@
+import Foundation
+
+struct Expense{
+  let title : String
+  let amount : Double
+}
+
+
+
+ let expenses = [
+    Expense(title: "Groceries",amount: 50.0),
+    Expense(title: "EB Bill",amount: 70.0),
+    Expense(title: "Travel",amount: 30.0)
+ ]
+
+ //Highest Expense
+ let highestExpense : ([Expense]) -> Expense?  = { expenses in
+  expenses.max(by: {$0.amount < $1.amount})
+ }
+ if let highestExpenseObj = highestExpense(expenses){
+    print("Highest Expense: \(highestExpenseObj)")
+ }else{
+  print("No expenses available.")
+ }

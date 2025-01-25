@@ -1,0 +1,53 @@
+//create a protocol
+protocol PaymentMethod {
+  var amount : Double { get set}
+  func processPayment() -> String
+}
+
+//implementation class
+class CreditCard : PaymentMethod{
+  var amount : Double
+
+  init(amount : Double){
+    self.amount = amount
+  }
+
+  func processPayment() -> String {
+    return "Payment of $\(amount) processed through Credit Card."
+  }
+}
+
+class GooglePay : PaymentMethod{
+  var amount : Double
+
+  init(amount : Double){
+    self.amount = amount
+  }
+
+  func processPayment() -> String {
+    return "Payment of $\(amount) processed through GooglePay."
+  }
+}
+
+
+//service layer class, calling protocol 
+class PaymentProcessor{
+
+  func makePayment(with paymentMethod : PaymentMethod){
+    let result = paymentMethod.processPayment()
+    print(result)
+  }
+}
+
+
+//Create Object
+let creditCard = CreditCard(amount : 150.89)
+let googlePay = GooglePay(amount : 100.23)
+
+//using service layer class, calling protocal method
+let paymentProcessor = PaymentProcessor()
+paymentProcessor.makePayment(with: creditCard)
+paymentProcessor.makePayment(with : googlePay)
+
+let creditPayment = creditCard.processPayment()
+print(creditPayment)

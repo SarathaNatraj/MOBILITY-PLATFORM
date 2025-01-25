@@ -1,0 +1,54 @@
+import Foundation
+
+struct Expense{
+  let title : String
+  let amount : Double
+}
+
+class BudgetTracker{
+  private var expenses : [Expense] = []
+
+  func addExpense(_ title : String,_ amount : Double){
+    expenses.append(Expense(title : title, amount : amount))
+  }
+
+  func calculateTotalExpenses(completion : (Double) -> Void){
+    let total = expenses.reduce(0) {$0 + $1.amount}
+    completion(total)
+  }
+  //find expense
+  func findHighestExpense(completion: (Expense?) -> Void) {
+    let maxExpense = expenses.max(by: {$0.amount < $1.amount} )
+    completion(maxExpense)
+  }
+
+ 
+  //Filter Expense by certain amount
+
+  //total = 0, total = total + 1.amount , total = total + 2.amount
+
+}
+
+
+let tracker = BudgetTracker()
+tracker.addExpense("Groceries", 50.0)
+tracker.addExpense("EB Bill", 70.0)
+tracker.addExpense("Travel", 30.0)
+
+
+tracker.calculateTotalExpenses{ total in 
+  print("Total Expenses : \(total)")
+}
+
+
+
+tracker.findHighestExpense{ maxExpense in 
+ // print("Maximum Expense : \(maxExpense)")
+  if let maxExpense = maxExpense {
+    print("\n Highest Expense")
+    print("\(maxExpense.title) : \(maxExpense.amount)")
+  }else{
+    print(" No max Expense")
+  }
+
+}

@@ -1,0 +1,28 @@
+func fetchData(from url:String,_ completion : (String)-> Void){
+  print("Fetch data from \(url)")
+  completion("Data received")
+}
+
+fetchData(from: "https://jsonplaceholder.typicode.com/users"){
+   response in 
+ print(response)
+
+}
+
+//Closure scenario with parameter -> without
+let greet = {(name: String)-> String in 
+            return "Hello, \(name)"}
+
+print(greet("Alice"))
+
+func performTask(completion : () -> Void ){
+  print("Task is being performed...")
+  completion() //callback handler
+}
+
+//Trailing closure
+performTask{
+  print("Task Completed")
+}
+
+
