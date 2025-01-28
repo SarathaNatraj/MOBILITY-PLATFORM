@@ -1,1 +1,6 @@
-Launch TransactionFormView from Content view in swift ui, as soon as save transaction is clicked save the transaction object into collection ,navigate to previous screen. In transaction list screen, display all transactions from the collection and dashboard contentview screen shows current balance and spending trends, Develop interaction logic that allows users to edit or delete transactions from the list
+Design the main user interface using SwiftUI to display a list of transactions.
+Implement a form to add new transactions, categorizing them as either income or expenses.
+Use SwiftUI's layout system to create a dashboard view that shows the user's current balance and spending trends.
+Integrate SwiftUI modifiers to customize the look and feel of the dashboard according to user preferences.
+Develop interaction logic that allows users to edit or delete transactions from the list.
+Set up navigation flows to move between the dashboard, transaction list, and transaction creation form.
