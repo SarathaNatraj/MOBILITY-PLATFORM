@@ -1,43 +1,6 @@
-import SwiftUI
-
-struct TransactionFormView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: TransactionViewModel
-    @State var transaction: Transaction
-    
-    var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Transaction Details")) {
-                    TextField("Amount", value: $transaction.amount, formatter: NumberFormatter())
-                        .keyboardType(.decimalPad)
-                    
-                    TextField("Description", text: $transaction.description)
-                    
-                    Picker("Category", selection: $transaction.category) {
-                        Text("Income").tag("Income")
-                        Text("Expense").tag("Expense")
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                }
-                
-                Button(action: {
-                    if let existingTransaction = viewModel.transactions.first(where: { $0.id == transaction.id }) {
-                        viewModel.updateTransaction(transaction)
-                    } else {
-                        viewModel.addTransaction(transaction)
-                    }
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Save Transaction")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            }
-            .navigationTitle(transaction.id == UUID() ? "New Transaction" : "Edit Transaction")
-        }
-    }
-}
+Design the main user interface using SwiftUI to display a list of transactions.
+Implement a form to add new transactions, categorizing them as either income or expenses.
+Use SwiftUI's layout system to create a dashboard view that shows the user's current balance and spending trends.
+Integrate SwiftUI modifiers to customize the look and feel of the dashboard according to user preferences.
+Develop interaction logic that allows users to edit or delete transactions from the list.
+Set up navigation flows to move between the dashboard, transaction list, and transaction creation form.
