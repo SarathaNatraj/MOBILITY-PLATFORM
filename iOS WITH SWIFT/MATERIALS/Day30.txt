@@ -1,0 +1,27 @@
+Syntax - Closure with no params
+
+{
+	//stmts
+}
+
+Syntax - Closure with params
+
+{ (parameters) -> returnType in 
+
+	//stmts
+}
+
+//Kotlin
+println("The value is ${value}")
+
+//Swift
+print("The value is \(value)")
+
+guard - early exit from block of code, within functions, loops, conditionals
+
+
+No Exception
+Error  handling 
+
+try, catch, throw, throws
+do ... catch - catch and handle errors

@@ -1,0 +1,66 @@
+UI Screens :-
+Dashboard UI -> user's current balance, spending trends - already done -> ContentView
+Transaction List UI -> list of transactions -> TransactionListView
+Transaction Form UI -> add transaction - already done
+
+
+Dashboard -> ListView -> FormView
+ 
+
+Navigation
+Storage -> Collections
+
+
+Data Models
+	Transaction -> struct
+
+//Service Layer
+	TransactionStore  swift pure class 
+		totalIncome,
+		totalExpense,
+		currentBalance
+
+
+
+1. Data Model
+	
+2. TransactionStore -> service class shared multiple layers
+	implements  ObervableObject
+
+	create a transactions collections as empty
+		@Published -> property wrapper is used ObservableObject protocol implementation
+	
+	other three properties totalIncome,
+		totalExpense,
+		currentBalance
+
+3. MainApp
+	create object for service layer class, and pass with 
+	
+		WindowGroup{.
+			ContentView().environmentObject(transStore)
+		
+
+
+
+MainApp -> Screen
+	-> 3 Views 
+	-> Provide navigation for 3 Views
+
+
+
+
+
+Coding 
+	UI -> 3 Views
+	Data Model -> Transaction : Identifiable (Lists, Table, Grid)
+	Service Layer class -> TransactionStore : ObservableObject
+					@Published transactions:[Transaction] = []
+			MainApp -> create an object for txx store and pass it as an environment 					object
+			Other Views, fetch EnvironmentObject as txx store
+
+	Dashboard -> Implementing navigation -> wrap the app code with NavigationView and last stat will be NavigationLink with destination
+	TransactionListView -> display the list of transaction from the service layer class
+	TransactionFormView -> add transactions into collections
+
+	

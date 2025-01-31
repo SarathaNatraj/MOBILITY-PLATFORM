@@ -1,0 +1,29 @@
+Core Data
+
+If you are creating a project with Core Data
+	XXXX.xcdatamodeld - table related information - entity info
+	Persistence.swift - Persistence Controller -> name of database will be your app,
+	
+
+Integrate with Core Data to existing project
+Create a normal project
+	1. UI -> ContentView as per design
+	2. Create a New File with Data Model under Core Data section(.xcdatamodeld)
+		You have to define model object with properties and data types
+	3. Create a PersistentController is a pure swift file
+
+	4. Insert -> AddPostView -> insertion of post
+	5. Fetch -> PostsView -> fetch all the posts
+	6. Update -> 
+	7. Delete
+		
+
+Author 
+	id : Int16, 
+	name : String
+	Book : Transformable<Book> UIColor -> built in 
+
+Book
+	id: Int16
+	name: String
+	pub : String
