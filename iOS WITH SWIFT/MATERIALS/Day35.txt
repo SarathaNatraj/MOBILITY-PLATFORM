@@ -1,0 +1,12 @@
+CoreData with relationships
+	1. Create Entities
+	2. Navigate to relationship section, 
+		Target on base entity, create relationship
+			1-to-Many
+		Target on sub entity
+			1-to-1
+	3. Create Extension class of base entity, add property of Collections
+	4. PersistentController
+	5. ContentViews -> List(Delete -> onswipeActions), Add, Edit
+
+	

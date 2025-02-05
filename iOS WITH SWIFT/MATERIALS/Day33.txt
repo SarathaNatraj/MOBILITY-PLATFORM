@@ -12,10 +12,10 @@ Create a normal project
 		You have to define model object with properties and data types
 	3. Create a PersistentController is a pure swift file
 
-	4. Insert -> AddPostView -> insertion of post
-	5. Fetch -> PostsView -> fetch all the posts
+	4. Insert -> AddPostView -> insertion of post -> viewContext.save()
+	5. Fetch -> PostsView -> fetch all the posts -> @FetchResult
 	6. Update -> 
-	7. Delete
+	7. Delete -> viewContext.delete(post)
 		
 
 Author 
