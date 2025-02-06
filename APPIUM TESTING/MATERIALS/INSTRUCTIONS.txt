@@ -1,0 +1,53 @@
+https://nodejs.org/en/download - //Installing Node.js -> 1
+
+npm install -g appium  //Installing appium -> 2
+
+
+appium driver list   //Fetching the driver list -> 3
+
+
+appium driver install <driver name> //install the driver - uiautomator2 -> 4 
+
+appium driver list --updates  
+
+
+appium driver update <driver name>
+
+
+appium driver uninstall <driver name>
+
+npm install -g appium-doctor   // status of your appium server -> 5
+
+appium-doctor --version
+
+appium-doctor --android
+
+npm install -g carthage
+
+
+appium-doctor --ios    
+
+appium  // appium server start
+
+
+appium --allow-insecure chromedriver_autodownload //appium start 
+
+
+Web application appium testing
+
+
+1. Appium installed, running
+2. Android Studio emulator / real device should be running
+3. write client test program(Maven project
+4. Run test program from eclipse ide
+
+
+
+Mobile application appium testing
+
+
+1. Appium installed, running
+2. Android Studio emulator / real device should be running
+3. Application should be installed
+4. write client test program 
+5. run test program from eclipse ide
