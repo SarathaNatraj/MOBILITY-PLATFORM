@@ -34,7 +34,9 @@ public class AppiumTesting {
             Thread.sleep(2000);
 
             // Find the "Learn More" button (assuming it's a link, you may need to adjust the selector)
-            WebElement learnMoreButton = driver.findElement(By.xpath("//a[contains(text(), 'Learn More')]"));
+            WebElement learnMoreButton = driver.findElement(By.xpath("//a[contains(text(), 'Learn more')]"));
+            
+            System.out.println("learnMoreButton: "+learnMoreButton);
 
             // Click the "Learn More" button
             learnMoreButton.click();
@@ -44,7 +46,8 @@ public class AppiumTesting {
 
             // Verify URL change
             String currentUrl = driver.getCurrentUrl();
-            if(currentUrl.equals("https://www.apple.com/in/iphone-16/")) {
+            System.out.println(" current URL :: "+currentUrl);
+            if(currentUrl.equalsIgnoreCase("https://www.apple.com/in/iphone-16-pro/")) {
                 System.out.println("Successfully navigated to: " + currentUrl);
             } else {
                 System.out.println("URL did not change correctly.");

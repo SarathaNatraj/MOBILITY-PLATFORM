@@ -31,4 +31,9 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:paddingTop="16dp" />
+    <Button
+        android:id="@+id/btnNavigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navigate to Second Screen" />
 </LinearLayout>
