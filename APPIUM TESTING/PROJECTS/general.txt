@@ -1,0 +1,31 @@
+			// Wait for RecyclerView to load
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.example.recyclerviewapp:id/recyclerView")));
+
+            // Scroll and find the element by text
+            String targetItem = "Item 30";
+            boolean itemFound = false;
+
+            for (int i = 0; i < 5; i++) {
+                // Get all visible list items
+                List<WebElement> listItems = driver.findElements(MobileBy.id("com.example.recyclerviewapp:id/textView"));
+
+                for (WebElement item : listItems) {
+                    System.out.println("Item Found: " + item.getText());
+                    if (item.getText().equals(targetItem)) {
+                        item.click();
+                        itemFound = true;
+                        System.out.println("Clicked on: " + targetItem);
+                        break;
+                    }
+                }
+
+                if (itemFound) break;
+
+                // Scroll RecyclerView
+                driver.executeScript("mobile: scrollGesture", 
+                    new java.util.HashMap<String, Object>() {{
+                        put("direction", "down");
+                        put("elementId", driver.findElement(MobileBy.id("com.example.recyclerviewapp:id/recyclerView")).getId());
+                    }});
+            }
