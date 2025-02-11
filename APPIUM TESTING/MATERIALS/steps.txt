@@ -1,0 +1,15 @@
+Appium + Jenkins  Integration
+
+1. Create Maven Project , update pom.xml
+2. Add Tests to Maven Project
+3. Install Jenkins, setup
+4. Configure the Jenkins Job
+6. Run the job
+
+
+Jenkins -> Installation -> port 8080
+setup :-
+	-> configure Tools -> Git, JDK, Maven
+	-> configure plugin -> Maven Integration Plugin (if using Maven), Test Results Analyzer Plugin (for report 	  visualization), HTML Publisher
+	-> Set up Github credentials, generate  Access token in Github
+	
