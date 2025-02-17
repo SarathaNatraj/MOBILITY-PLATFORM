@@ -25,7 +25,7 @@ appium-doctor --android
 npm install -g carthage
 
 
-appium-doctor --ios    
+sudo appium-doctor --ios    
 
 appium  // appium server start
 
